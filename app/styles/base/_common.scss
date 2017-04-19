@@ -1,0 +1,390 @@
+.bsy-icon:before {
+  content: '';
+  background-size: 32px 32px !important;
+  height: 32px;
+  width: 32px;
+  background-repeat: no-repeat;
+}
+
+.content-center {
+  text-align: center;
+}
+
+.be-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bsy-select:after {
+  content: "";
+  height: 20px;
+  width: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  background-image: url("../img/arrow_down.png");
+}
+
+
+label.has-error {
+  border-bottom: 3px solid red !important;
+}
+
+.blue{
+  color: $color-blue-z !important;
+}
+
+.bg-blue{
+  color: $color-white-z !important;
+  background-color: $color-blue-z !important;
+}
+
+.orange{
+  color: $color-orange-z !important;
+}
+
+.white{
+  color: $color-white-z !important;
+}
+
+.black{
+  color: $color-black-z !important;
+}
+
+.gray{
+  color: $color-gray-z !important;
+}
+
+.tbg{
+  color: $color-tbg-z !important;
+}
+
+.w100{
+  width: 100px;
+}
+.h60{
+  height: 60px !important;
+}
+.h55{
+  height: 55px !important;
+}
+
+.mt100{
+  margin-top: 100px;
+}
+
+.mr20{
+  margin-right: 20px;
+}
+/*font*/
+.tfont{
+  font-size: 13px;
+  color: $color-tbg-z;
+}
+
+.right{
+  right: 20px;
+  position: absolute;
+}
+/**/
+.calm-z{
+  color: $color-blue-z;
+  font-size: 17px;
+}
+
+ion-content{
+  background-color: $color-con-z;
+  bottom: 0px !important;
+  padding-bottom: 0 !important;
+}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+
+
+.no-border-top{
+  border-top:0; 
+}
+.no-border-bottom{
+  border-bottom:0; 
+}
+
+.no-header{
+  background-color: #f7f7f7;
+}
+.has-subheader {
+    top: 85px;
+}
+
+.ion-ios-arrow-left{
+  color: $color-white-z;
+}
+
+.list{
+  padding: 0;
+}
+.bar .title + .button:last-child{
+  bottom: 0;
+}
+/**
+ * button
+ */
+.bar.bar-positive{
+  border-color:$color-blue-z;
+  background-color: $color-blue-z;
+  background-image: linear-gradient(0deg, $color-blue-z, $color-blue-z 50%, transparent 50%)
+}
+
+.button.button-positive{
+  background-color: $color-blue-z;
+}
+.bar-positive .button{
+  background-color: inherit;
+}
+.btn-flex{
+  width: 100% !important;
+}
+.btn-one-z{
+  font-size: 20px;
+  text-align: center;
+  height: 48px;
+  line-height: 48px;
+  border-radius: 4px;
+}
+
+.button-z{
+  height: 35px;
+  min-height: 20px;
+  line-height: 20px;
+ }
+
+ /*tab*/
+.tabs {
+  padding-top: 5px;
+  height: 60px;
+  border-bottom: 1px solid #ccc;
+ }
+
+.tabs-top > .tabs{
+  top: inherit;
+}
+
+ion-tabs.tabs-color-active-balanced .tab-item.tab-item-active{
+  color: $color-blue-z;
+}
+/*bar-footer*/
+.bar-footer-z {
+  padding: 0px;
+  height: 60px;
+  border-top: 1px solid #ccc;
+  .button{
+    background: none;
+    width: 33.33%;
+    color: $color-black-z;
+    line-height: 25px;
+    i.zrsm-icon{
+      display:block;
+    }
+    &.active{
+      color: $color-blue-z;
+    }
+    .icon {
+      display: block;
+      margin: 0px auto;
+      height: 25px;
+      font-size: 37px;
+    }
+    span{
+      font-size: 10px;
+    }
+  }
+}
+.bar .button:last-child{
+  top: 0 !important; 
+}
+.button.active,.button.activated,.bar-positive .button{
+  border:0;
+}
+
+/*card*/
+.card{
+  box-shadow:none;
+  margin:10px 0;
+}
+
+/* icon*/
+.item-input .icon{
+  min-width: 20px;
+  font-size: 20px;
+}
+
+.hide-top-border{
+  white-space: normal;
+  border-top: $color-white-z !important;
+  margin-top: -15px;
+}
+/*input*/
+.item{
+  border-color: #d8d8d8 !important;
+}
+
+.item-input{
+  padding: 0 0 0 16px !important;
+  align-items: inherit;
+  line-height: 50px;
+  i{
+    display:inline-block;
+  }
+  input{
+    display:inline-block;
+  }
+}
+
+.input-z{
+  height:50px !important;
+  color: $color-tbg-z !important;
+  font-size: 17px !important;
+  line-height: 30px !important;
+}
+
+.input-h60{
+  height:60px !important;
+  color: $color-tbg-z;
+  font-size: 17px !important;
+  /*line-height: 30px !important;*/
+}
+
+.textarea-z{
+  width: 100%;
+  height: 104px;
+  background-color: #f7f7f7;
+  padding: 15px;
+  font-size: 13px;
+}
+
+.btn-bg{
+  background-color: $color-btn-z; 
+}
+
+.tips-z{
+  color: $color-orange-z;
+  font-size: 12px;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+}
+
+.icon-z{
+  width: 35px !important;
+  height: 35px !important;
+  margin: 10px 0;
+}
+
+.bar-subheader{
+  height: 50px;
+}
+
+/*弹出框提示*/
+.loading-container {
+    left: 45%;
+    position: absolute;
+    top: 45%;
+    right: 0;
+    bottom: 0;
+    z-index: 13;
+    display: inline-table;
+    -moz-justify-content: center;
+    justify-content: center;
+    -moz-align-items: center;
+    align-items: center;
+    transition: 0.2s opacity linear;
+    visibility: hidden; 
+    opacity: 1;
+}
+
+.popup-container{
+  color: #5a5a5a;
+  font-size: 17px;
+  position: absolute;
+  display: inline-block;
+  top: 30%;
+  left: 15%;
+  bottom: 0;
+  right: 0;
+  .popup{
+    border-radius: 15px;
+    width: 270px;
+    text-align: center;
+  }
+  .popup-head {
+    display: none;
+  }
+  .popup-body {
+    padding: 15px;
+    overflow: auto;
+  }
+  .popup-buttons{
+    height: 10px;
+    position: relative;
+    min-height: 45px;
+    width: 100%;
+    display: inline-block;
+    border-top: 1px solid #d8d8d8;
+    padding: 0;
+    .button:only-child{
+      width: 100%;
+    }
+    .button{
+      flex: 10 !important;
+      float: left;
+      width: 48%;
+      min-width:48% !important; 
+    }
+    .button-default{
+      background-color: inherit;
+      border-right: 1px solid #d8d8d8;
+    }
+    .button-positive{
+      background-color: inherit !important;
+      color: #0099ff;
+    }
+  }
+}
+.ionic_toast_top{
+  top:20% !important;
+  width: 50% !important;
+  height: 25% !important;
+  margin: 0 auto !important;
+  border-radius: 15px !important;
+  .icon-duihao-z img{
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.display_flex{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+.display_flex > *{
+    display: block;
+}
+.display_inline-flex{
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-flex;
+    display: inline-flex;    
+}
+.display_inline-flex > *{
+    display: block;
+}
+
+.item.active,
+.item.activated,
+.item-complex.active .item-content,
+.item-complex.activated .item-content,
+.item .item-content.active,
+.item .item-content.activated {
+  border-color: #ccc;
+  background-color: #ffffff; }

@@ -1,0 +1,509 @@
+## 数据格式定义
+### 服务器返回数据格式：
+{
+  "code": "OK",     # 错误码，OK表示成功，其它为失败的错误码
+  "msg": "成功",     # 失败时的错误消息，根据情况决定是否显示在UI上
+  "result": 0,      # 结果值，0表示成功，1表示失败。可以通过这个字段或者code来判断是否成功。
+  "data": [] / {}   # 实际数据（可选），根据实际的场景返回具体的数据，可以是数组或者对象。
+}
+
+### 客户端往服务器提交的数据格式为JSON，内容视具体情况而定。
+
+
+## 登录页面
+登录接口：
+{
+  "cellphone": "11012345678",
+  "password": "testtest"
+}
+服务器返回错误码，不返回数据：
+"OK": 成功，跳转到首页
+"IDENTITY_VERIFY_REQUIRED": 需要实名认证，跳转到 『首页（首次登录）』页面
+"ACCOUNT_UNDER_REVIEW": 资料正在审核，弹出『再次登录』页面中的消息
+其他的错误码直接展示msg即可，比如：
+"WRONG_USERNAME_PASSWORD": 用户名或密码错误
+
+## 忘记密码页面
+获取验证码接口：
+{
+  "cellphone": "11012345678"
+}
+服务器返回错误码，不返回数据：
+"OK": 成功，开始倒计时
+其他的错误码直接展示msg即可
+
+验证并登录接口：
+{
+  "cellphone": "11012345678",
+  "sms_code": "1234",
+  "password": "testtest",
+  "repeat_password": "testtest"
+}
+服务器返回错误码，不返回数据：
+"OK": 成功，跳转到首页
+"IDENTITY_VERIFY_REQUIRED": 需要实名认证，跳转到 『首页（首次登录）』页面
+"ACCOUNT_UNDER_REVIEW": 资料正在审核，弹出『再次登录』页面中的消息
+其他的错误码直接展示msg即可
+
+
+## 注册页面
+获取验证码接口：
+{
+  "cellphone": "11012345678"
+}
+服务器返回错误码，不返回数据：
+"OK": 成功，开始倒计时
+其他的错误码直接展示msg即可
+
+注册接口:
+{
+  "cellphone": "11012345678",
+  "sms_code": "1234",
+  "password": "testtest"
+}
+服务器返回错误码，不返回数据：
+"OK": 成功，弹出消息进行实名信息验证
+其他的错误码直接展示msg即可
+
+
+## 信息完善页面
+提交数据接口为form格式：
+"name": "李四"
+"id_no": "420103199911232368",
+"photo: 文件内容
+服务器返回错误码，不返回数据：
+"OK": 成功，弹出消息进行提示资料审核中
+其他的错误码直接展示msg即可
+
+
+## 首页
+服务器返回JSON中data的内容格式：
+{
+  "total_income": 1440.00,                        # 总收益
+  "has_msg": true,                                # 是否有新消息
+  "ready_for_work": true,                         # 是否上班
+  "job_list": [                                   # 工作列表返回数组，返回每一条具体的工作
+    {
+      "id": "11601022222",                        # 订单号
+      "service_class": "家电安装",                 # 服务类型
+      "service_class_code": "ha_install",         # 服务类型代码
+      "distance": 3.1,                            # 距离
+      "appointed_date": "2016-03-20",             # 预约时间
+      "address_display": "南京市建邺区兴隆街道苍山路50号奥体新城5栋1单元602",    # 地址
+      "contact_name": "林早上",                    # 联系人
+      "contact_phone": "13999999999",             # 联系电话
+      "item_list": [                              # 服务项目列表
+        {
+          "display": "空调"                          # 项目名称
+        }
+      ]
+    },
+    {
+      "id": "1160102223",                         # 订单号
+      "service_class": "家电维修",                 # 服务类型
+      "service_class_code": "ha_repair",          # 服务类型代码
+      "distance": 2.1,                            # 距离
+      "appointed_date": "2016-03-20",             # 预约时间
+      "address_display": "南京市建邺区兴隆街道苍山路50号奥体新城5栋1单元602",    # 地址
+      "contact_name": "卫斯理",                    # 联系人
+      "contact_phone": "13999999999",             # 联系电话
+      "item_list": [                              # 服务项目列表
+        {
+          "display": "空调"                          # 项目名称
+        }
+      ]
+    },
+    {
+      "id": "1160102224",                         # 订单号
+      "service_class": "清洗保养",                 # 服务类型
+      "service_class_code": "ha_maintain",        # 服务类型代码
+      "distance": 2.1,                            # 距离
+      "appointed_date": "2016-03-20",             # 预约时间
+      "address_display": "南京市建邺区兴隆街道苍山路50号奥体新城5栋1单元602",    # 地址
+      "contact_name": "卫斯理",                    # 联系人
+      "contact_phone": "13999999999",             # 联系电话
+      "item_list": [                              # 服务项目列表
+        {
+          "display": "柜式空调"                         # 项目名称
+        },
+        {
+          "display": "油烟机"                         # 项目名称
+        },
+        {
+          "display": "洗衣机"                          # 项目名称
+        }
+      ]
+    },
+    {
+      "id": "1160102225",                         # 订单号
+      "service_class": "便民服务",                 # 服务类型
+      "service_class_code": "ha_maintain",        # 服务类型代码
+      "distance": 2.1,                            # 距离
+      "appointed_date": "2016-03-20",             # 预约时间
+      "address_display": "南京市建邺区兴隆街道苍山路50号奥体新城5栋1单元602",    # 地址
+      "contact_name": "卫斯理",                    # 联系人
+      "contact_phone": "13999999999",             # 联系电话
+      "item_list": [                              # 服务项目列表
+        {
+          "display": "开锁"                         # 项目名称
+        }
+      ]
+    }
+  ]
+}
+
+
+## 订单详情 - 家电维修页面
+服务器返回JSON中data的内容格式：
+{
+  "id": "11601022222",                        # 订单号
+  "service_class": "家电维修",                 # 服务类型
+  "service_class_code": "ha_repair",          # 服务类型代码
+  "distance": 3.1,                            # 距离
+  "appointed_date": "2016-03-20",             # 预约时间
+  "address_display": "南京市建邺区兴隆街道苍山路50号奥体新城5栋1单元602",    # 地址
+  "contact_name": "林早上",                    # 联系人
+  "contact_phone": "13999999999",             # 联系电话
+  "item_list": [
+    {
+      "display": "洗衣机"                      # 服务项目名称
+    }
+  ],
+  "trouble_display_list": [                   # 问题列表
+    "排水问题", "不甩干", "桶不转", "不甩干", "漏电", "噪音"
+  ],
+  "brand": "美的",                             # 品牌  (没有值时返回空字符串""，其它的字段同理)
+  "model": "F60",                             # 型号
+  "desc": "我们家的洗衣机坏了，请尽快安排人上门",   # 问题描述
+  "remark": "下午四点后来，辅材自带，请提前联系",   # 备注
+  "action_list": [                            # 底部按钮的值
+    {"code": "reject", "name": "接不了"},
+    {"code": "accept", "name": "接单"},
+    {"code": "cancel", "name": "取消服务"}，
+    {"code": "reschedule", "name": "改约时间"}，
+    {"code": "complete", "name": "完成服务"}
+  ]
+}
+
+
+## 订单详情 - 家电安装页面
+服务器返回JSON中data的内容格式：
+{
+  "id": "11601022222",                        # 订单号
+  "state_code": "",     # initiated  assigned  accepted completed cancelled 派工中 待接单 已接单 已完成  已取消
+  "service_class": "家电安装",                 # 服务类型
+  "service_class_code": "ha_install",         # 服务类型代码
+  "distance": 3.1,                            # 距离
+  "appointed_date": "2016-03-20",             # 预约时间
+  "address_display": "南京市建邺区兴隆街道苍山路50号奥体新城5栋1单元602",    # 地址
+  "contact_name": "林早上",                    # 联系人
+  "contact_phone": "13999999999",             # 联系电话
+  "item_list": {
+    {
+      "display": "洗衣机",                     # 标题栏显示名称
+      "name": "二次安装",                      # 服务信息显示名称
+      "amount": 1                             # 服务信息显示数量
+    },
+    {
+      "display": "洗衣机",
+      "name": "新机安装",
+      "amount": 2
+    }
+  },
+  "sum_price: 200.00,                         # 服务名称
+  "brand": "美的",                             # 品牌
+  "model": "F60",                             # 型号
+  "desc": "我们家的洗衣机坏了，请尽快安排人上门",   # 问题描述
+  "remark": "下午四点后来，辅材自带，请提前联系",    # 备注
+  "action_list": [
+    # 数据格式同维修单
+  ]
+}
+
+
+## 订单详情 - 清洗保养页面
+服务器返回JSON中data的内容格式：
+{
+  "id": "11601022222",                        # 订单号
+  "service_class": "清洗保养",                 # 服务类型
+  "service_class_code": "ha_maintain",         # 服务类型代码
+  "distance": 3.1,                            # 距离
+  "appointed_date": "2016-03-20",             # 预约时间
+  "address_display": "南京市建邺区兴隆街道苍山路50号奥体新城5栋1单元602",    # 地址
+  "contact_name": "林早上",                    # 联系人
+  "contact_phone": "13999999999",             # 联系电话
+  "item_list": {
+    {
+      "display": "空调",                      # 标题栏显示名称
+      "name": "空调",                         # 服务信息显示名称
+      "amount": 1                            # 服务信息显示数量
+    },
+    {
+      "display": "柜式空调",
+      "name": "柜式空调",
+      "amount": 2
+    }
+  },
+  "sum_price: 200.00,                         # 服务价格
+  "desc": "我们家的洗衣机坏了，请尽快安排人上门",   # 问题描述
+  "remark": "下午四点后来，辅材自带，请提前联系",    # 备注
+  "action_list": [
+    # 数据格式同维修单
+  ]
+}
+
+
+## 订单详情 - 便民服务页面
+服务器返回JSON中data的内容格式：
+{
+  "id": "11601022222",                        # 订单号
+  "service_class": "便民服务",                 # 服务类型
+  "service_class_code": "convenience",         # 服务类型代码
+  "distance": 3.1,                            # 距离
+  "appointed_date": "2016-03-20",             # 预约时间
+  "address_display": "南京市建邺区兴隆街道苍山路50号奥体新城5栋1单元602",    # 地址
+  "contact_name": "林早上",                    # 联系人
+  "contact_phone": "13999999999",             # 联系电话
+  "item_list": {
+    {
+      "display": "开锁",                      # 标题栏显示名称
+      "name": "房门",                         # 服务信息显示名称
+      "amount": 1                            # 服务信息显示数量
+    },
+    {
+      "display": "开锁",
+      "name": "保险柜",
+      "amount": 3
+    }
+  },
+  "sum_price: 200.00,                         # 服务价格
+  "desc": "我们家的洗衣机坏了，请尽快安排人上门",   # 问题描述
+  "remark": "下午四点后来，辅材自带，请提前联系",    # 备注
+  "action_list": [
+    # 数据格式同维修单
+  ]
+}
+
+
+## 消息页面
+服务器返回JSON中data的内容格式：
+[
+  {
+    "id": 1,
+    "publish_time": "2016-01-01 11:22",       # 发布时间
+    "title": "好消息！",                       # 标题
+    "has_read": false,                        # 是否已读
+    "summary": "找人上门是覆盖高淳区各项服务"      # 摘要
+  },
+  {
+    "id": 2,
+    "publish_time": "2016-01-01 11:22",
+    "title": "好消息！",
+    "has_read": false,
+    "summary": "找人上门是覆盖高淳区各项服务"
+  }
+]
+
+
+## 消息详情页面
+服务器返回JSON中data的内容格式：
+{
+  "id": 1,
+  "publish_time": "2016-01-01 11:22",       # 发布时间
+  "title": "好消息！",                       # 标题
+  "summary": "找人上门是覆盖高淳区各项服务"      # 摘要
+  "content": "找人上门是覆盖高淳区各项服务,找人上门是覆盖高淳区各项服务,找人上门是覆盖高淳区各项服务,"   # 内容
+}
+
+
+## 收益详情页面
+服务器返回JSON中data的内容格式：
+[
+  {
+    "time": "2016-02-01 11:22",         # 时间
+    "pay_method": "cash",               # 支付方式，"cash" 或 "wechat"
+    "order_id": "2222222",              # 订单号
+    "amount": "180.00"                  # 金额
+  },
+  {
+    "time": "2016-01-10 11:22",         # 时间
+    "pay_method": "cash",               # 支付方式
+    "order_id": "2222222",              # 订单号
+    "amount": "180.00"                  # 金额
+  }
+]
+
+
+## 个人中心页面
+服务器返回JSON中data的内容格式：
+{
+  "photo": "url_to_img",                # 头像地址
+  "name": "王大海",                      # 姓名
+  "cellphone": "15728379201",           # 手机号
+  "order_quantity": 230,                # 订单数
+  "rating": "98%",                      # 好评
+  "balance": "5000.00",                 # 余额
+  "income_of_month": "8000"             # 当月收益
+}
+
+## 提现记录页面
+服务器返回JSON中data的内容格式：
+列表为空时表示没有记录
+[
+  {
+    "time": "2016-01-10 11:22",         # 时间
+    "amount": 2000.00,                  # 交易金额
+    "receiver": "王大海",                # 收款方
+    "method": "微信",                    # 微信
+    "account": "haha_0909"              # 收款帐号
+  },
+  {
+    "time": "2016-01-09 11:22",
+    "amount": 1000.00,
+    "receiver": "王大海",
+    "method": "微信",
+    "account": "haha_0909"
+  }
+]
+
+
+## 提现页面
+提现密码未设置返回错误码："WITHDRAW_PASSWORD_NOT_SET"
+提现帐号未设置返回错误码："WITHDRAW_ACCOUNT_NOT_SET"
+服务器返回JSON中data的内容格式：
+{
+  "balance": 1200.00,
+  "withdraw_account_list": [
+    {
+      "id": 1,
+      "method": "wechat",            # 方式
+      "account": "haha_1990"         # 帐号
+    },
+    {
+      "id": 2,
+      "method": "alipay",            # 方式
+      "account": "haha_1990@qq.com"  # 帐号
+    }
+  ]
+}
+
+提取接口：
+{
+  "amount": "1000.00",
+  "account_id": 1,
+  "withdraw_password": "111111"
+}
+服务器返回错误码，不返回数据：
+"OK": 成功，开始倒计时
+其他的错误码直接展示msg即可
+
+
+## 绑定微信页面
+提现密码未设置返回错误码："WITHDRAW_PASSWORD_NOT_SET"
+提现帐号未设置返回错误码："WITHDRAW_ACCOUNT_NOT_SET"
+服务器返回JSON中data的内容格式：
+[
+  {
+    "id": 1,
+    "name": "王老五",
+    "account": "1111111111"
+  },
+  {
+    "id": 2,
+    "name": "王老五",
+    "account": "22222222222"
+  }
+]
+
+
+## 设置提现密码页面
+获取验证码接口：
+{
+  "cellphone": "11012345678"
+}
+服务器返回错误码，不返回数据：
+"OK": 成功，开始倒计时
+其他的错误码直接展示msg即可
+
+验证并登录接口：
+{
+  "cellphone": "11012345678",
+  "sms_code": "1234",
+  "password": "111111"
+}
+服务器返回错误码，不返回数据：
+"OK": 成功，跳转到首页
+其他的错误码直接展示msg即可
+
+
+## 重置提现密码页面
+获取验证码接口：
+{
+  "cellphone": "11012345678"
+}
+服务器返回错误码，不返回数据：
+"OK": 成功，开始倒计时
+其他的错误码直接展示msg即可
+
+重置密码接口：
+{
+  "cellphone": "11012345678",
+  "sms_code": "1234",
+  "password": "111111",
+  "repeat_password": "111111"
+}
+
+
+## 添加微信帐号页面
+添加接口:
+{
+  "account": "haha_9090"
+}
+
+
+## 解除绑定页面
+解除接口：
+{
+  "id_list": [1, 2, 3]
+}
+
+
+## 订单管理页面
+{
+  "not_accepted": [
+    # 每条订单的数据格式同首页
+  ],
+  "accepted": [
+    # 每条订单的数据格式同首页
+  ],
+  "completed": [
+    # 每条订单的数据格式同首页
+    对于该列表中的记录多一个字段:
+      "state": "completed"/"cancelled"
+    根据该字段显示已完成或已取消
+  ]
+}
+
+
+## 订单取消页面
+{
+  "reason_list": ["用户主动取消", "其他"],
+  "detail_reason": "用户不需要服务了"       # 没有则提交空字符串
+}
+
+
+## 订单改约页面
+改约接口:
+{
+  "reason_list": ["用户主动改约", "其他"],
+  "detail_reason": "用户暂时不在家",         # 没有则提交空字符串
+  "new_date": "2016-03-02",
+  "change_owner": false
+}
+
+
+## 完成订单页面
+重置金额接口：
+{
+  "new_amount": "480.00"
+}

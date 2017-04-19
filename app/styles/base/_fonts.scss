@@ -1,0 +1,75 @@
+/**
+ * Import fonts either via @import url (e.g. from Googlee Fonts)
+ * or via @font-face when font files are stored locally in /app/fonts
+ */
+
+@font-face {
+    font-family: 'fontello';
+    src: url(../fonts/fontello.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.zrsm-icon {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+ 
+    display: inline-block;
+    text-decoration: inherit;
+    margin-right: .3em;
+    text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+ 
+  /* You can be more comfortable with increased icons size */
+   font-size: 120%; 
+ 
+  /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-line{
+  line-height: 3em;
+}
+
+.icon-lianxikefu-z:before { content: '\e801'; } /* '' */
+.icon-plus-z:before { content: '\e802'; } /* '' */
+.icon-message-z:before { content: '\e803'; } /* '' */
+.icon-list-z:before { content: '\e804'; } /* '' */
+.icon-ok-z:before { content: '\e805'; } /* '' */
+.icon-smile-z:before { content: '\e806'; } /* '' */
+.icon-weixin-z:before { content: '\e807'; } /* '' */
+.icon-money-z:before { content: '\e808'; } /* '' */
+.icon-tell-z:before { content: '\e809'; } /* '' */
+.icon-adress-z:before { content: '\e80a'; } /* '' */
+.icon-home-z:before { content: '\e80b'; } /* '' */
+.icon-clock-z:before { content: '\e80c'; } /* '' */
+.icon-person-z:before { content: '\e80d'; } /* '' */
+.icon-header-z:before { content: '\e80e'; } /* '' */
+.icon-right-z:before { content: '\e80f'; } /* '' */
+.icon-lock-z:before { content: '\e810'; } /* '' */
+.icon-flash-z:before { content: '\e811'; } /* '' */
+.icon-point-z:before { content: '\e812'; } /* '' */
+.icon-mobile-z:before { content: '\e813'; } /* '' */
+.icon-notice-z:before { content: '\e814'; } /* '' */
+.icon-team-z:before { content: '\e815'; } /* '' */
+.icon-jilu-z:before { content: '\e817'; } /* '' */
+.icon-photo-z:before { content: '\e818'; } /* '' */
+.icon-safe-z:before { content: '\e819'; } /* '' */
+.icon-look-z:before { content: '\e81a'; } /* '' */
+.icon-left-z:before { content: '\e81b'; } /* '' */
+.icon-duihao-z:before { content: '\e81c'; } /* '' */
+.icon-form-z:before { content: '\e81d'; } /* '' */
+.icon-tips-z:before { content: '\e81e'; } /* '' */
+.icon-spin5:before { content: '\e800'; } /* '' */
+.icon-zrsm-z:before { content: '\e820'; } /* '' */
+.icon-cash-z:before { content: '\e821'; } /* '' */
