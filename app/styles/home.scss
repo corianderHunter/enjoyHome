@@ -1,0 +1,31 @@
+.headerBtnDiv{
+}
+.content-margin{
+  margin-top: 43px;
+}
+.home-router{
+  width: 100%;
+  background-color: white;
+}
+.home-router ul{
+  display: flex;
+}
+.home-router ul li{
+  flex: 1;
+  padding: 3% 8% 0                ;
+}
+.home-router ul li:nth-child(2n){
+  border-bottom: 1px solid #d2d2d2;
+}
+.home-router ul li:nth-child(2n+1){
+  border-right: 1px solid #d2d2d2;
+  border-bottom: 1px solid #d2d2d2;
+}
+.home-router ul li img{
+  width: 100%;
+}
+.home-router ul li div{
+  font-size: 17px;
+  text-align: center;
+  padding: 15px 0px;
+}

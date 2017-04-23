@@ -1,0 +1,38 @@
+<ion-view>
+    <ion-header-bar align-title="left" class="self-bar">
+        <div class="headerBtnDiv buttons">
+            <img src="imgs/user.svg" class="headerBtn"/>
+        </div>
+        <h1 class="title">乐享家-养护端</h1>
+        <div class="headerBtnDiv buttons">
+            <img src="imgs/sca.svg" class="headerBtn"/>
+        </div>
+    </ion-header-bar>
+    <ion-content scroll="true" class="content-margin">
+        <ion-slide-box>
+            <ion-slide>
+                <div class="box blue"><h1>BLUE</h1></div>
+            </ion-slide>
+            <ion-slide>
+                <div class="box yellow"><h1>YELLOW</h1></div>
+            </ion-slide>
+            <ion-slide on-slide-changed="slideHasChanged(index)">
+                <div class="box pink"><h1>PINK</h1></div>
+            </ion-slide>
+        </ion-slide-box>
+        <div class="home-router">
+            <ul>
+                <li><img src="imgs/task.svg" class="headerBtn"/><div>我的任务</div></li>
+                <li><img src="imgs/workon.svg" class="headerBtn"/><div>我要加班</div></li>
+            </ul>
+            <ul>
+                <li><img src="imgs/record.svg" class="headerBtn"/><div>我要反馈</div></li>
+                <li><img src="imgs/sca.svg" class="headerBtn"/><div>扫码盘点</div></li>
+            </ul>
+            <ul>
+                <li><img src="imgs/leave.svg" class="headerBtn"/><div>我要请假</div></li>
+                <li><img src="imgs/repair.svg" class="headerBtn"/><div>复状报损</div></li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>
