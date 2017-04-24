@@ -3,5 +3,5 @@
  */
 angular.module('ZrsmWorker')
     .controller('homeCtrl', function($scope,$rootScope,$timeout, $state,$stateParams, ionicPopup,$ionicSlides, HomeService) {
-
+        $scope.myActiveSlide = 1;
     })

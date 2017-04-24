@@ -1,31 +1,55 @@
-.headerBtnDiv{
-}
-.content-margin{
-  margin-top: 43px;
-}
-.home-router{
+.content-margin {
+  margin-top: 43px; }
+
+.home-router {
   width: 100%;
+  padding-top: 5px;
+}
+
+.home-router ul {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.home-router ul li {
+  margin: 12px 4px;
   background-color: white;
-}
-.home-router ul{
-  display: flex;
-}
-.home-router ul li{
-  flex: 1;
-  padding: 3% 8% 0                ;
-}
-.home-router ul li:nth-child(2n){
-  border-bottom: 1px solid #d2d2d2;
-}
-.home-router ul li:nth-child(2n+1){
-  border-right: 1px solid #d2d2d2;
-  border-bottom: 1px solid #d2d2d2;
-}
-.home-router ul li img{
+  padding: 6px 0;
   width: 100%;
-}
-.home-router ul li div{
   font-size: 17px;
-  text-align: center;
-  padding: 15px 0px;
+  height: 50px;
+  position: relative;
+  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+}
+
+
+.home-router ul li:nth-child(2n) {
+}
+
+.home-router ul li:nth-child(2n+1) {
+}
+
+.home-router ul li img {
+  position: absolute;
+  margin-top: 5px;
+  right: 50%;
+  margin-right: 31px;
+}
+
+.home-router ul li div {
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 15px;
+
+  margin-left: -8px;
+
+}
+.mainColor{
+  background-color: #28aaa0;
+   }
+.self-slide{
+  height: 190px;
 }
