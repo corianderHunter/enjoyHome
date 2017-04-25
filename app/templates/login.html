@@ -1,0 +1,26 @@
+<ion-view>
+    <ion-content class="mainColor fullPage">
+        <div class="middleHeight">
+            <div class="login-header">
+                乐享家园林
+            </div>
+            <div>
+                <label class="item item-input self-item">
+                    <i class="form-icon">
+                        <img src="imgs/10.png">
+                    </i>
+                    <input type="text" class="form-control bca70 input-z" ng-model="loginInfo.phone" name="user_phone"  required placeholder="Email address">
+                </label>
+                <label class="item item-input self-item">
+                    <i class="form-icon">
+                        <img src="imgs/11.png">
+                    </i>
+                    <input type="password" class="form-control bca70 input-z" ng-model="loginInfo.password" name="user_password" required placeholder="Password">
+                </label>
+            </div>
+            <div class="padding button-bar">
+                <button class="btn-one-z button button-positive btnC btn-flex" check-form ng-click="loginSubmit(loginInfo)">登录</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
