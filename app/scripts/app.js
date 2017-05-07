@@ -40,7 +40,7 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova', 'ngResource', 'ionic-toast']
     state('login',{
           url: '/login',
           templateUrl: 'templates/login.html',
-          controller: 'homeCtrl'
+          controller: 'loginCtrl'
       });
       $urlRouterProvider.otherwise('login');
   });
