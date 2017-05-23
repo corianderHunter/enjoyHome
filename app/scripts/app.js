@@ -78,23 +78,28 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova', 'ngResource', 'ionic-toast',
     })
         .state('myTask',{
           url: '/myTask',
-          templateUrl: 'templates/myTask.html'
+          templateUrl: 'templates/myTask.html',
+            controller:'myTaskCtrl'
       }).
       state('storageList',{
           url: '/storageList',
-          templateUrl: 'templates/storageList.html'
+          templateUrl: 'templates/storageList.html',
+        controller:'storageListCtrl'
       }).
       state('subStorageList',{
           url: '/subStorageList',
-          templateUrl: 'templates/subStorageList.html'
+          templateUrl: 'templates/subStorageList.html',
+        controller:'subStorageListCtrl'
       }).
       state('lossReport',{
           url: '/lossReport',
-          templateUrl: 'templates/lossReport.html'
+          templateUrl: 'templates/lossReport.html',
+        controller:'lossReportCtrl'
       }).
       state('scanList',{
           url: '/scanList',
-          templateUrl: 'templates/scanList.html'
+          templateUrl: 'templates/scanList.html',
+        controller:'scanListCtrl'
       })
     ;
       $urlRouterProvider.otherwise('home');
