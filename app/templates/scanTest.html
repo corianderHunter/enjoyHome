@@ -1,0 +1,18 @@
+<ion-view>
+    <ion-content class="mainColor fullPage">
+        <div class="card">
+            <div class="item">
+                <button class="button button-block button-positive" ng-click="scanStart()">
+                    <i class="icon ion-qr-scanner"></i>
+                    Scan Now
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-divider">Scan Results</div>
+            <div class="item item-text-wrap">
+                {{dataArr}}
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

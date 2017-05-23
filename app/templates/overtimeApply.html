@@ -1,0 +1,32 @@
+<ion-view>
+    <ion-header-bar align-title="left" class="self-bar mainColor">
+        <div class="back-button buttons"  ng-click="goback()">
+            <i class="icon ion-chevron-left fl backBtn"></i>
+        </div>
+        <h1 class="title tc c-white">新建假单</h1>
+    </ion-header-bar>
+    <ion-content class="bg-c-f0f0f2 fullPage dc">
+        <div class="overtimeContainer">
+            <div class="overtimeDate bg-c-white">
+                <div class="overtimeTitle tc"><i class="icon ion-chevron-left fl" ng-click="backMonth()"></i>{{date}}<i class="icon ion-chevron-right fr" ng-click="addMonth()"></i></div>
+                <div class="weekDate">
+                <div class="weekName tc">一</div><div class="weekName tc">二</div><div class="weekName tc">三</div>
+                <div class="weekName tc">四</div><div class="weekName tc">五</div><div class="weekName tc">六</div>
+                <div class="weekName tc">日</div>
+                </div>
+                <div class="">
+                    <div ng-repeat="date1_ in Dates  track by $index" isChosen="{{date1_.isChosen}}" class="weekName {{date1_.flag?'trueDate':'falseDate'}} tc" ng-click="chosenDate(date1_.date,date1_.flag,$event)" value="{{date1_.date}}">{{date1_.value}}</div>
+                </div>
+            </div>
+            <button class="button button-stable w100 timeBtn" ng-click="openTimePicker1()">
+                开始时间<strong>({{rst_st||'error'}})</strong>
+            </button>
+            <button class="button button-stable w100 timeBtn" ng-click="openTimePicker2()">
+                结束时间<strong>({{rst_et||'error'}})</strong>
+            </button>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="self-bar mainColor">
+        <h1 class="title tc c-white">请假</h1>
+    </ion-footer-bar>
+</ion-view>

@@ -10,7 +10,7 @@
  */
 
 
-angular.module('ZrsmWorker', ['ionic', 'ngCordova', 'ngResource', 'ionic-toast'])
+angular.module('ZrsmWorker', ['ionic', 'ngCordova', 'ngResource', 'ionic-toast','ionic-timepicker'])
 
   .run(function ($ionicPlatform) {
 
@@ -25,8 +25,7 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova', 'ngResource', 'ionic-toast']
     // add possible global event handlers here
 
   })
-
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
 
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
@@ -36,13 +35,69 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova', 'ngResource', 'ionic-toast']
         url: '/home',
         templateUrl: 'templates/home.html',
         controller: 'homeCtrl'
-    }).
-    state('login',{
-          url: '/login',
-          templateUrl: 'templates/login.html',
-          controller: 'loginCtrl'
-      });
-      $urlRouterProvider.otherwise('login');
+    })
+    .state('scan',{
+        url:'/scan',
+          templateUrl:'templates/scanTest.html',
+          controller:'scanTestCtrl'
+    })
+    .state('login',{
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'loginCtrl'
+     })
+    .state('work',{
+    url: '/work',
+    templateUrl: 'templates/workOn.html',
+    controller: 'workOnCtrl'
+    })
+    .state('overtime',{
+        url:'/overtime',
+        templateUrl:'templates/overtime.html',
+        controller:'overtimeCtrl'
+    })
+    .state('overtimeApply',{
+        url:'/overtimeApply',
+        templateUrl:'templates/overtimeApply.html',
+        controller:'overtimeApplyCtrl'
+    })
+    .state('feedback',{
+        url:'/feedback',
+        templateUrl:'templates/feedback.html',
+        controller:'feedbackCtrl'
+    })
+    .state('feedbackShow',{
+        url:'/feedbackShow',
+        templateUrl:'templates/feedbackShow.html',
+        controller:'feedbackShowCtrl'
+    })
+    .state('feedbackAdd',{
+        url:'/feedbackAdd',
+        templateUrl:'templates/feedbackAdd.html',
+        controller:'feedbackAddCtrl'
+    })
+        .state('myTask',{
+          url: '/myTask',
+          templateUrl: 'templates/myTask.html'
+      }).
+      state('storageList',{
+          url: '/storageList',
+          templateUrl: 'templates/storageList.html'
+      }).
+      state('subStorageList',{
+          url: '/subStorageList',
+          templateUrl: 'templates/subStorageList.html'
+      }).
+      state('lossReport',{
+          url: '/lossReport',
+          templateUrl: 'templates/lossReport.html'
+      }).
+      state('scanList',{
+          url: '/scanList',
+          templateUrl: 'templates/scanList.html'
+      })
+    ;
+      $urlRouterProvider.otherwise('home');
   });
 
 

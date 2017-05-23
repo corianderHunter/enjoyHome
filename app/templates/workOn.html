@@ -1,0 +1,32 @@
+<ion-view>
+    <ion-header-bar align-title="left" class="self-bar mainColor">
+        <div class="back-button buttons"  ng-click="goback()">
+            <i class="icon ion-chevron-left fl backBtn"></i>
+        </div>
+        <h1 class="title tc c-white">加班申请</h1>
+    </ion-header-bar>
+    <ion-content class="bg-c-white fullPage dc" on-drag-up="onDragUp()" on-drag-down="onDragDown()" on-release="onRelease()">
+        <div class="dataContainer">
+            <div class="dataTitle tc">{{date1}}</div>
+            <!--<div class="weekDate">-->
+                <!--<div class="weekName tc">周一</div><div class="weekName tc">周二</div><div class="weekName tc">周三</div>-->
+                <!--<div class="weekName tc">周四</div><div class="weekName tc">周五</div><div class="weekName tc">周六</div>-->
+                <!--<div class="weekName tc">周日</div>-->
+            <!--</div>-->
+            <div class="monthDate">
+                <div ng-repeat="date1_ in Dates1  track by $index" isChosen="{{date1_.isChosen}}" class="weekName {{date1_.flag?'trueDate':'falseDate'}} tc" ng-click="chosenDate(date1_.date,date1_.flag,$event)" value="{{date1_.date}}">{{date1_.value}}</div>
+            </div>
+        </div>
+        <div class="dataContainer">
+            <div class="dataTitle tc">{{date2}}</div>
+            <!--<div class="weekDate">-->
+                <!--<div class="weekName tc">周一</div><div class="weekName tc">周二</div><div class="weekName tc">周三</div>-->
+                <!--<div class="weekName tc">周四</div><div class="weekName tc">周五</div><div class="weekName tc">周六</div>-->
+                <!--<div class="weekName tc">周日</div>-->
+            <!--</div>-->
+            <div class="monthDate">
+                <div ng-repeat="date2_ in Dates2  track by $index" isChosen="{{date2_.isChosen}}" class="weekName {{date2_.flag?'trueDate':'falseDate'}} tc" ng-click="chosenDate(date2_.date,date2_.flag,$event)" value="{{date2_.date}}">{{date2_.value}}</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

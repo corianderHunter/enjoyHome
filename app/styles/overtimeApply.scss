@@ -1,0 +1,46 @@
+.overtimeContainer{
+  width: 100%;
+  padding: 20px;
+}
+.overtimeDate{
+  font-size: 16px;
+  font-weight: bold;
+}
+.overtimeTitle{
+  padding: 10px 30px;
+}
+.w100{
+  width: 100%;
+}
+.timeBtn{
+  margin-top: 30px;
+}
+.popup-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: transparent;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  z-index: 12;
+  visibility: hidden;
+}
+.popup-buttons{
+  display: flex!important;
+}

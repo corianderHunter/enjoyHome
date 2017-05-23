@@ -1,0 +1,37 @@
+.weekDate {
+  white-space: nowrap; }
+
+.weekName {
+  width: calc(99.3% / 7);
+  display: inline-block;
+  height: 35px;
+  line-height: 30px;
+}
+
+.dataTitle {
+  padding: 10px 0; }
+
+.dataContainer {
+  border-top: 3px solid #d2d2d2;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.singleDate {
+  width: calc(99.3% / 7);
+  display: inline-block;
+  border: none;
+  padding: 0;
+  margin: 0; }
+.monthDate .weekName:nth-child(7n+6):not(.falseDate){
+  background-color: #aabaf0;
+}
+.monthDate .weekName:nth-child(7n+7):not(.falseDate){
+  background-color: #aabaf0;
+}
+.weekName[isChosen='1']{
+  background-image: url(../imgs/correct.svg);
+  background-repeat: no-repeat;
+  background-position: 100% 2px;
+  background-size: 20px;
+}

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.njleonzhang.zrsmworker" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>zrsmWorker</name>
-  <description>
-    Add your desription here
+  <description>&#xD;
+    Add your desription here&#xD;
   </description>
-  <author email="zpczjl@126.com">
-    njleonzhang
+  <author email="zpczjl@126.com">&#xD;
+    njleonzhang&#xD;
   </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -39,4 +39,5 @@
     <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
+  <allow-navigation href="http://10.0.0.3:8100"/>
 </widget>
