@@ -15,15 +15,16 @@
             </label>
         </div>
         <div class="imgList pad10">
-            <!--<div class="list">-->
-                <!--<div class="item" data-ng-repeat="img in images_list">-->
-                    <!--<img src="{{img}}"  style="width:100%">-->
-                <!--</div>-->
-            <!--</div>-->
-            <div class="dpib icon ion-plus-round singleImg add a8a8aa"  ng-click="getPictures()"></div>
+            <div class="list">
+                <div class="dpib item singleImg" ng-repeat="img in imageList" ng-click="delImg(img)">
+                    <img src="{{img}}" width="100%">
+                </div>
+            </div>
+            <div class="dpib icon ion-plus-round add a8a8aa"  ng-click="getPictures()"></div>
         </div>
     </ion-content>
     <ion-footer-bar class="self-bar mainColor">
         <h1 class="title tc c-white">提交</h1>
     </ion-footer-bar>
 </ion-view>
+

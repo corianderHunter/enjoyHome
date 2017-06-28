@@ -10,15 +10,15 @@
                         <i class="form-icon">
                             <img src="imgs/10.png">
                         </i>
-                        <input type="text" ng-pattern="/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/" bsy-form-validate="userPhoneErrorTips"
-                               class="form-control input-z" ng-model="loginInfo.phone" name="user_phone"  required placeholder="Email address">
+                        <input type="text" bsy-form-validate="userPhoneErrorTips"
+                               class="form-control input-z" ng-model="loginInfo.phone" name="user_phone"  required placeholder="账号">
                     </label>
                     <label class="item item-input self-item">
                         <i class="form-icon">
                             <img src="imgs/11.png">
                         </i>
                         <input  type="password" bsy-form-validate="userPwdErrorTips"
-                                class="form-control input-z" ng-model="loginInfo.password" name="user_password" required placeholder="Password">
+                                class="form-control input-z" ng-model="loginInfo.password" name="user_password" required placeholder="密码">
                     </label>
                 </div>
                 <div class="padding button-bar">

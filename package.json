@@ -50,5 +50,8 @@
   "scripts": {
     "gulp": "./node_modules/.bin/gulp"
   },
-  "cordovaPlugins": []
+  "cordovaPlugins": [
+    "cordova-plugin-camera",
+    "cordova-plugin-whitelist"
+  ]
 }

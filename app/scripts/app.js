@@ -10,7 +10,7 @@
  */
 
 
-angular.module('ZrsmWorker', ['ionic', 'ngCordova', 'ngResource', 'ionic-toast','ionic-timepicker'])
+angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','ionic-timepicker','ngCookies'])
 
   .run(function ($ionicPlatform) {
 
@@ -25,12 +25,13 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova', 'ngResource', 'ionic-toast',
     // add possible global event handlers here
 
   })
-  .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+  .config(function ($stateProvider,$httpProvider,$urlRouterProvider,$ionicConfigProvider) {
 
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
     // Set up the various states which the app can be in.
     // Each state's controller can be found in controllers.js
+    $httpProvider.defaults.headers.post = {"Content-type":"application/json; charset=UTF-8"};
     $stateProvider.state('home',{
         url: '/home',
         templateUrl: 'templates/home.html',
@@ -100,9 +101,14 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova', 'ngResource', 'ionic-toast',
           url: '/scanList',
           templateUrl: 'templates/scanList.html',
         controller:'scanListCtrl'
+      }).
+      state('personalInfo',{
+          url: '/personalInfo',
+          templateUrl: 'templates/personalInfo.html',
+          controller:'personalInfoCtrl'
       })
     ;
-      $urlRouterProvider.otherwise('home');
+      $urlRouterProvider.otherwise('login');
   });
 
 
