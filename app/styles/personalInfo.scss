@@ -1,0 +1,21 @@
+.imgCt{
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+.imgCt img{
+  width: 100%;
+}
+.infoCt{
+  width: calc(100% - 150px);
+}
+.infoCt>p{
+  margin: 20px 0;
+}
+.pl{
+  display: block;
+  padding: 10px 30px ;
+}
+.pl>div{
+  display: inline-block;
+}

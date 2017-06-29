@@ -6,8 +6,22 @@
         <h1 class="title tc c-white">查看反馈</h1>
     </ion-header-bar>
     <ion-content class="bg-c-f0f0f2 fullPage dc">
-        <div class="feedback_content"></div>
-        <div class="imgList"></div>
+        <div class="feedBack_content pad10">
+            <label class="item item-input">
+                <input type="text" placeholder="请输入标题" readonly value="{{item.title||''}}">
+            </label>
+            <label class="item item-input mgt10">
+                <textarea readonly type="text" class="self-textarea" placeholder="请输入要反馈的信息">{{item.content||''}}</textarea>
+            </label>
+        </div>
+        <div class="imgList pad10">
+            <div class="list">
+                <div class="dpib item singleImg">
+                    <img src="{{item.picUrl}}" width="100%">
+                </div>
+            </div>
+            <!--<div class="dpib icon ion-plus-round add a8a8aa"  ng-click="getPictures()"></div>-->
+        </div>
     </ion-content>
 
 </ion-view>

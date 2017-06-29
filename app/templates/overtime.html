@@ -7,7 +7,7 @@
     </ion-header-bar>
     <ion-content class="bg-c-white fullPage dc">
         <ul class="list" style="margin-bottom: 100px">
-            <li class="item tc" ng-repeat="val in testData">
+            <li class="item tc" ng-repeat="val in data">
                 {{val.st}}~{{val.et.split(' ')[1]}}
                 <i class="icon {{val.status==1?'ion-checkmark-round':(val.status==0?'ion-close-round':'ion-help')}} fr"></i>
             </li>

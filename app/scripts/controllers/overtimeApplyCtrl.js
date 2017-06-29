@@ -5,7 +5,7 @@
  * Created by weigg on 2017/5/14.
  */
 angular.module('ZrsmWorker')
-    .controller('overtimeApplyCtrl', function($scope,ionicPopup,$state,$ionicHistory,ionicTimePicker) {
+    .controller('overtimeApplyCtrl', function($scope,$ionicPopup,$state,$ionicHistory,ionicTimePicker,overtimeApplyService,API_CONFIG) {
         console.log('overtimeApplyCtrl');
 
         $scope.goback = function(){
@@ -57,10 +57,8 @@ angular.module('ZrsmWorker')
             ionicTimePicker.openTimePicker(ipObj1);
         };
 
-
-        let chosenDate_Store = null;
+        $scope.chosenDate_Store = {};
         let Chosen = 0;
-        //document.getElementsByClassName('weekName')[0].offsetWidth
         function getDates (month,year){
             let arr = [];
             let date = new Date(year,month);
@@ -72,11 +70,12 @@ angular.module('ZrsmWorker')
                     arr.push('');
                 }else{
                     let val = year+'-'+(month+1)+'-'+i;
-                    if(chosenDate_Store === val){
+                    if($scope.chosenDate_Store.date === val){
                         isChosen = 1;
                         arr.push({value:i-ftDath+1,flag:1,date:val,isChosen:isChosen});
                     }else{
-                        arr.push({value:i-ftDath+1,flag:1,date:val});
+                        isChosen = 0
+                        arr.push({value:i-ftDath+1,flag:1,date:val,isChosen:isChosen});
                     }
                 }
             }
@@ -101,11 +100,23 @@ angular.module('ZrsmWorker')
                 $scope.date = `${year}年${month + 1}月`;
                 $scope.Dates = getDates(month, year);
             }
-        $scope.chosenDate=function(value,flag,$event){
-            let _$target = event.target;
-            let fg = _$target.getAttribute('isChosen')-0;
-            if(flag) {
-                _$target.setAttribute('isChosen',!fg-0);
-            };
+        $scope.chosenDate=function(value,$event){
+            value["isChosen"] = !value.isChosen-0;
+            $scope.chosenDate_Store["isChosen"] = 0;
+            $scope.chosenDate_Store = value;
+        }
+
+        $scope.submit = function(){
+            if(!$scope.chosenDate_Store||!$scope.chosenDate_Store["isChosen"]) return API_CONFIG.showAlert("请选择日期");
+            overtimeApplyService.overtimeApply({
+                leaveDate:$scope.chosenDate_Store.date,
+                startTime:$scope.rst_st,
+                endTime:$scope.rst_et
+            }).then(function(data){
+
+            },function(data){
+
+            })
+
         }
     });

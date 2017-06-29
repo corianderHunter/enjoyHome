@@ -15,7 +15,7 @@
                 <div class="weekName tc">日</div>
                 </div>
                 <div class="">
-                    <div ng-repeat="date1_ in Dates  track by $index" isChosen="{{date1_.isChosen}}" class="weekName {{date1_.flag?'trueDate':'falseDate'}} tc" ng-click="chosenDate(date1_.date,date1_.flag,$event)" value="{{date1_.date}}">{{date1_.value}}</div>
+                    <div ng-repeat="date1_ in Dates  track by $index" isChosen="{{date1_.isChosen}}" class="weekName {{date1_.flag?'trueDate':'falseDate'}} tc" ng-click="chosenDate(date1_,$event)" value="{{date1_.date}}">{{date1_.value}}</div>
                 </div>
             </div>
             <button class="button button-stable w100 timeBtn" ng-click="openTimePicker1()">
@@ -27,6 +27,6 @@
         </div>
     </ion-content>
     <ion-footer-bar class="self-bar mainColor">
-        <h1 class="title tc c-white">请假</h1>
+        <h1 class="title tc c-white" ng-click="submit()">请假</h1>
     </ion-footer-bar>
 </ion-view>

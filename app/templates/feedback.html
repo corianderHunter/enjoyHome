@@ -7,10 +7,10 @@
     </ion-header-bar>
     <ion-content class="bg-c-white fullPage dc">
         <ul class="list" style="margin-bottom: 100px">
-            <li class="item" ng-repeat="val in testData" ui-sref="feedbackShow">
+            <li class="item" ng-repeat="val in testData" ui-sref="feedbackShow({item:val})">
                 <div style="height: 20px;line-height: 20px">
                     <div class="fl" style="max-width: calc(100% - 100px);text-overflow: ellipsis;overflow: hidden;">{{val.title}}</div>
-                    <div class="fr" >{{val.date}}</div>
+                    <div class="fr" >{{val.feedbackDate}}</div>
                 </div>
                 <div class="text-ct">
                     {{val.content}}

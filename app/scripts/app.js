@@ -70,7 +70,8 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','
     .state('feedbackShow',{
         url:'/feedbackShow',
         templateUrl:'templates/feedbackShow.html',
-        controller:'feedbackShowCtrl'
+        controller:'feedbackShowCtrl',
+        params:{item:null}
     })
     .state('feedbackAdd',{
         url:'/feedbackAdd',
