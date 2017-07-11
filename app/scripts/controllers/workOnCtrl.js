@@ -2,7 +2,7 @@
  * Created by weigg on 2017/5/14.
  */
 angular.module('ZrsmWorker')
-    .controller('workOnCtrl', function($scope,ionicPopup,$state,$ionicHistory,workOnService) {
+    .controller('workOnCtrl', function($scope,ionicPopup,$state,$ionicHistory,workOnService,API_CONFIG_UTIL) {
         $scope.goback = function(){
             $ionicHistory.goBack();
         }
@@ -18,13 +18,13 @@ angular.module('ZrsmWorker')
                     let date = new Date(year,month);
                     let ftDath = date.getDay()?date.getDay():7;
                     let count = (new Date(year,month+1,0)).getDate()+ftDath-1;
-                    let i = 1;
+                    let i = 1,isChosen;
                     for (;i<=count;i++){
                             if(i<ftDath){
                                     arr.push('');
                             }else{
                                     let val = year+'-'+format(month+1)+'-'+format(i-ftDath+1);
-                                    let isChosen = 0;
+                                    isChosen = 0;
                                     for(let j=0;j<$scope.chosenDate_Store.length;j++){
                                         if(!$scope.chosenDate_Store[j]) continue;
                                         if($scope.chosenDate_Store[j].date == val){
@@ -114,7 +114,7 @@ angular.module('ZrsmWorker')
                         }
                     }
                 },function(){
-                    API_CONFIG.showAlert("移除请假失败！");
+                    API_CONFIG_UTIL.showAlert("移除请假失败！");
                 })
             }else{
                 workOnService.commitovertime({
@@ -122,6 +122,7 @@ angular.module('ZrsmWorker')
                 }).then(function(data){
                     value.isChosen = 1;
                     $scope.chosenDate_Store.push(value);
+
                 })
             }
         }

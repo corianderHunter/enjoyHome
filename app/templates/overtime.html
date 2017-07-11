@@ -6,12 +6,24 @@
         <h1 class="title tc c-white">请假申请</h1>
     </ion-header-bar>
     <ion-content class="bg-c-white fullPage dc">
-        <ul class="list" style="margin-bottom: 100px">
-            <li class="item tc" ng-repeat="val in data">
+        <!--<ul class="list" style="margin-bottom: 100px">-->
+            <!--<li class="item tc" ng-repeat="val in data">-->
+                <!--{{val.st}}~{{val.et.split(' ')[1]}}-->
+                <!--<i class="icon {{val.status==1?'ion-checkmark-round':(val.status==0?'ion-close-round':'ion-help')}} fr"></i>-->
+            <!--</li>-->
+        <!--</ul>-->
+        <ion-list class="list feedback_list">
+            <ion-item ng-repeat="val in data"
+                      item="val"
+                      ui-sref="feedbackShow({item:val})" class="item item-remove-animate tc">
                 {{val.st}}~{{val.et.split(' ')[1]}}
                 <i class="icon {{val.status==1?'ion-checkmark-round':(val.status==0?'ion-close-round':'ion-help')}} fr"></i>
-            </li>
-        </ul>
+                <ion-option-button class="button-assertive"
+                                   ng-click="delete(val,$event)">
+                    删除
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
     </ion-content>
     <ion-footer-bar class="self-bar mainColor" ui-sref="overtimeApply">
         <h1 class="title tc c-white">请假</h1>

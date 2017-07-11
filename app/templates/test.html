@@ -16,7 +16,7 @@
             canvas.height = img.height;
             canvas.width = img.width;
             ctx.drawImage(img,0,0);
-            var dataURL = canvas.toDataURL(outputFormat || 'image/png');
+            var dataURL = canvas.toDataURL(outputFormat || 'image/png',0.5);
             callback.call(this, dataURL);
             canvas = null;
         };

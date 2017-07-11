@@ -25,6 +25,9 @@
   width: 21%;
   margin: 0 2%;
 }
+.feedback_list .list{
+  margin-bottom: 100px;
+}
 .singleImg:hover:after{
   content: '';
   width: 100%;
@@ -39,4 +42,7 @@
 }
 .singleImg>img{
   width: 100%;
+}
+.item-height{
+  min-height:78px!important;
 }

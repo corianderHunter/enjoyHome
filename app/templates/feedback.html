@@ -6,8 +6,10 @@
         <h1 class="title tc c-white">反馈</h1>
     </ion-header-bar>
     <ion-content class="bg-c-white fullPage dc">
-        <ul class="list" style="margin-bottom: 100px">
-            <li class="item" ng-repeat="val in testData" ui-sref="feedbackShow({item:val})">
+        <ion-list class="list feedback_list">
+            <ion-item ng-repeat="val in testData"
+                      item="val"
+                      ui-sref="feedbackShow({item:val})" class="item item-height item-remove-animate">
                 <div style="height: 20px;line-height: 20px">
                     <div class="fl" style="max-width: calc(100% - 100px);text-overflow: ellipsis;overflow: hidden;">{{val.title}}</div>
                     <div class="fr" >{{val.feedbackDate}}</div>
@@ -15,8 +17,12 @@
                 <div class="text-ct">
                     {{val.content}}
                 </div>
-            </li>
-        </ul>
+                <ion-option-button class="button-assertive"
+                                   ng-click="delete(val,$event)">
+                    删除
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
     </ion-content>
     <ion-footer-bar class="self-bar mainColor" ui-sref="feedbackAdd">
         <h1 class="title tc c-white">我要反馈</h1>

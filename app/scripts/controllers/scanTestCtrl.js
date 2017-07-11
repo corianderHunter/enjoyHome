@@ -2,7 +2,7 @@
  * Created by weigg on 2017/5/7.
  */
 angular.module('ZrsmWorker')
-    .controller('scanTestCtrl', function($scope,ionicPopup,$state,$cordovaBarcodeScanner) {
+    .controller('scanTestCtrl', function($scope,$state,$cordovaBarcodeScanner) {
         $scope.dataArr = [];;
         $scope.scanStart = function () {
             $cordovaBarcodeScanner

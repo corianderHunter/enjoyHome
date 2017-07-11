@@ -8,22 +8,22 @@
     <ion-content class="bg-c-f0f0f2 fullPage dc">
         <div class="feedBack_content pad10">
             <label class="item item-input">
-                <input type="text" placeholder="请输入标题">
+                <input type="text" placeholder="请输入标题" ng-model="data.title">
             </label>
             <label class="item item-input mgt10">
-                <textarea type="text" class="self-textarea" placeholder="请输入要反馈的信息"></textarea>
+                <textarea type="text" class="self-textarea" placeholder="请输入要反馈的信息" ng-model="data.content"></textarea>
             </label>
         </div>
         <div class="imgList pad10">
             <div class="list">
-                <div class="dpib item singleImg" ng-repeat="img in imageList" ng-click="delImg(img)">
+                <div class="dpib item singleImg" ng-repeat="img in imageList" ng-click="delImg($index)">
                     <img src="{{img}}" width="100%">
                 </div>
             </div>
             <div class="dpib icon ion-plus-round add a8a8aa"  ng-click="getPictures()"></div>
         </div>
     </ion-content>
-    <ion-footer-bar class="self-bar mainColor">
+    <ion-footer-bar class="self-bar mainColor" ng-click="commit()">
         <h1 class="title tc c-white">提交</h1>
     </ion-footer-bar>
 </ion-view>

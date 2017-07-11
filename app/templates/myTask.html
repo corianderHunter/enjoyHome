@@ -4,39 +4,23 @@
             <i class="icon ion-chevron-left back_icon"></i>
         </div>
         <h1 class="title task_title">我的任务</h1>
-        <div class="headerBtnDiv buttons">
-            <select class="myTask_select">
-              <option>当前</option>
-              <option>全部</option>              
-            </select>
-        </div>
+        <select class="myTask_select button fr"  ng-model="allDays" ng-change="select_()">
+            <option value="1">本周</option>
+            <option value="0">今天</option>
+        </select>
     </ion-header-bar>
     <div class="bar bar-subheader task_time_desc">
-      <h3 class="title">未完成工时：3小时&nbsp;&nbsp;&nbsp;&nbsp;已完成工时：4小时</h3>
+      <h3 class="title">未完成工时：{{unfinished}}小时&nbsp;&nbsp;&nbsp;&nbsp;已完成工时：{{finished}}小时</h3>
     </div>
-    <ion-content class="content-margin">
+    <ion-content class="content-margin" style="margin-top:50px ">
         <ul class="list">
-            <li class="item task_item" ui-sref="storageList">
-                <div class="item_left"><img src="imgs/9.png"/></div>
-                <div class="item_center">
-                    <div class="item_cont">
-                        <div class="item_title">未来网络</div>
-                        <div class="item_text">未完成工时 1.5小时</div>
-                    </div>
+            <li class="item task_item scanList_item" ng-repeat="item in works" ui-sref="">
+                <div class="fl item_width item_image"><img src="{{item.picUrl}}"/></div>
+                <div class="fr item_center_sub">
+                    <div class="item_title"><span class="fl">{{item.stockroomName}}</span></div>
+                    <div class="item_text">未完成工时{{item.workTime-item.finishWorkTime}}小时</div>
                 </div>
-                <div class="item_right"><i class="icon ion-chevron-right next_icon"></i></div>
-            </li>
-            <li class="item task_item"  ui-sref="storageList">
-                <div class="item_left"><img src="imgs/9.png"/></div>
-                <div class="item_center">
-                    <div class="item_cont">
-                        <div class="item_title">未来网络</div>
-                        <div class="item_text">未完成工时 1.5小时</div>
-                    </div>
-                </div>
-                <div class="item_right"><i class="icon ion-chevron-right next_icon"></i></div>
             </li>
         </ul>
-
     </ion-content>
 </ion-view>

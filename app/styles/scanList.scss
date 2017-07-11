@@ -1,3 +1,32 @@
 .scanList_item{
   margin-top:0px!important;
 }
+.self-input{
+  margin: 9px 26px;
+  border-radius: 10px;
+  background-color: white;
+}
+.item_width{
+  width: 30%;
+  overflow: hidden;
+}
+.item_image{
+}
+.item_image img{
+  width: 100%;
+}
+.item_title{
+  height: 30px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.item_text{
+  font-size: 16px;
+  margin-top: 20px;
+}
+.fs25{
+  font-size: 25px;
+}
+.scanDiv .card{
+  margin: 0;
+}

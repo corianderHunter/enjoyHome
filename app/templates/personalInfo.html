@@ -8,15 +8,15 @@
     <ion-content class="bg-c-f0f0f2 fullPage dc">
         <div class="pl">
             <div class="imgCt fl">
-                <img src="../imgs/jinping.jpg"/>
+                <img src="{{myInfo.picUrl}}"/>
             </div>
             <div class="infoCt fr tl fwb">
-                <p>赵伯伯</p>
-                <p>养护专员</p>
+                <p>{{myInfo.name}}</p>
+                <p>{{myInfo.roleName}}</p>
             </div>
         </div>
     </ion-content>
-    <ion-footer-bar class="self-bar mainColor">
-        <h1 class="title tc c-white">退出登录</h1>
-    </ion-footer-bar>
+    <!--<ion-footer-bar class="self-bar mainColor">-->
+        <!--<h1 class="title tc c-white">退出登录</h1>-->
+    <!--</ion-footer-bar>-->
 </ion-view>

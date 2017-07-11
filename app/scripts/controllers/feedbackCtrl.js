@@ -10,6 +10,15 @@ angular.module('ZrsmWorker')
             $ionicHistory.goBack();
         };
 
+        $scope.delete = function(item,$event){
+            feedbackService.deletefeedback({
+                feedbackId:item.feedbackId
+            }).then(function(){
+                delete item;
+                $event.target.parentNode.parentNode.remove()
+            })
+        }
+
         feedbackService.myfeedbacks().then(function(data){
             $scope.testData = data;
         });

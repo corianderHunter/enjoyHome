@@ -5,7 +5,7 @@
  * Created by weigg on 2017/5/14.
  */
 angular.module('ZrsmWorker')
-    .controller('overtimeApplyCtrl', function($scope,$ionicPopup,$state,$ionicHistory,ionicTimePicker,overtimeApplyService,API_CONFIG) {
+    .controller('overtimeApplyCtrl', function($scope,$ionicPopup,$state,$ionicHistory,ionicTimePicker,overtimeApplyService,API_CONFIG_UTIL) {
         console.log('overtimeApplyCtrl');
 
         $scope.goback = function(){
@@ -69,7 +69,7 @@ angular.module('ZrsmWorker')
                 if(i<ftDath){
                     arr.push('');
                 }else{
-                    let val = year+'-'+(month+1)+'-'+i;
+                    let val = year+'-'+(month+1)+'-'+(i-ftDath+1);
                     if($scope.chosenDate_Store.date === val){
                         isChosen = 1;
                         arr.push({value:i-ftDath+1,flag:1,date:val,isChosen:isChosen});
@@ -107,13 +107,13 @@ angular.module('ZrsmWorker')
         }
 
         $scope.submit = function(){
-            if(!$scope.chosenDate_Store||!$scope.chosenDate_Store["isChosen"]) return API_CONFIG.showAlert("请选择日期");
+            if(!$scope.chosenDate_Store||!$scope.chosenDate_Store["isChosen"]) return API_CONFIG_UTIL.showAlert("请选择日期");
             overtimeApplyService.overtimeApply({
                 leaveDate:$scope.chosenDate_Store.date,
                 startTime:$scope.rst_st,
                 endTime:$scope.rst_et
             }).then(function(data){
-
+                if(data.code === 2) API_CONFIG_UTIL.showAlert("提交请假成功！"),$state.go('overtime')
             },function(data){
 
             })

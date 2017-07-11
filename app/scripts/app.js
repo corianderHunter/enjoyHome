@@ -1,4 +1,3 @@
-'use strict';
 
 /**
  * @ngdoc overview
@@ -21,16 +20,8 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','
          window.open = window.cordova.InAppBrowser.open;
       }
     });
-
-    // add possible global event handlers here
-
   })
   .config(function ($stateProvider,$httpProvider,$urlRouterProvider,$ionicConfigProvider) {
-
-    // Ionic uses AngularUI Router which uses the concept of states
-    // Learn more here: https://github.com/angular-ui/ui-router
-    // Set up the various states which the app can be in.
-    // Each state's controller can be found in controllers.js
     $httpProvider.defaults.headers.post = {"Content-type":"application/json; charset=UTF-8"};
     $stateProvider.state('home',{
         url: '/home',
@@ -38,10 +29,11 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','
         controller: 'homeCtrl'
     })
     .state('scan',{
-        url:'/scan',
-          templateUrl:'templates/scanTest.html',
-          controller:'scanTestCtrl'
-    })
+          url: '/scan',
+          templateUrl: 'templates/scan.html',
+          controller:'scanCtrl',
+          params:{ids:null}
+      })
     .state('login',{
       url: '/login',
       templateUrl: 'templates/login.html',
@@ -86,12 +78,14 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','
       state('storageList',{
           url: '/storageList',
           templateUrl: 'templates/storageList.html',
-        controller:'storageListCtrl'
+        controller:'storageListCtrl',
+        params:{item:null}
       }).
       state('subStorageList',{
           url: '/subStorageList',
           templateUrl: 'templates/subStorageList.html',
-        controller:'subStorageListCtrl'
+        controller:'subStorageListCtrl',
+        params:{item:null}
       }).
       state('lossReport',{
           url: '/lossReport',
@@ -101,7 +95,7 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','
       state('scanList',{
           url: '/scanList',
           templateUrl: 'templates/scanList.html',
-        controller:'scanListCtrl'
+          controller:'scanListCtrl'
       }).
       state('personalInfo',{
           url: '/personalInfo',
