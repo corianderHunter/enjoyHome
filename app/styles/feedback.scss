@@ -3,12 +3,13 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.feedback_content{
-
+.feedBack_content input{
+  background-color: #fff!important;
 }
-.self-textarea{
+.feedBack_content .self-textarea{
   padding: 10px 0;
   min-height: 140px;
+  background-color: #fff!important;
 }
 .singleImg .add{
   width: 20%;
@@ -23,7 +24,6 @@
 }
 .singleImg{
   width: 21%;
-  margin: 0 2%;
 }
 .feedback_list .list{
   margin-bottom: 100px;

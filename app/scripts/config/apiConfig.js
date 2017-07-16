@@ -19,11 +19,12 @@ angular.module('ZrsmWorker')
 
 angular.module('ZrsmWorker')
     .factory('API_CONFIG_UTIL',function($ionicPopup,$state){
-        var showAlert = function(message) {
+        var showAlert = function(message,next) {
             var alertPopup = $ionicPopup.alert({
                 title: '提示!',
                 template: message
             });
+            alertPopup.then(next);
         }
         var paramsHandler = function(obj,$ck){
             var tmp={};

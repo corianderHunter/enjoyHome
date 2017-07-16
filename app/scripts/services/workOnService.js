@@ -45,7 +45,7 @@ angular.module('ZrsmWorker')
         var deleteovertime = function(param) {
             var deleteovertime_api = API_CONFIG.defaultPath+'/deleteovertime';
             var deferred = $q.defer();
-            $http.post(deleteovertime_api,API_CONFIG.paramsHandler(param,$cookies)).then(function (res) {
+            $http.post(deleteovertime_api,API_CONFIG_UTIL.paramsHandler(param,$cookies)).then(function (res) {
                 if (res.status === 204) {
                     console.log('登出')
                     deferred.reject(null);

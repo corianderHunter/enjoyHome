@@ -51,7 +51,10 @@
     "gulp": "./node_modules/.bin/gulp"
   },
   "cordovaPlugins": [
+    "cordova-plugin-whitelist",
+    "cordova-plugin-compat",
     "cordova-plugin-camera",
-    "cordova-plugin-whitelist"
+    "phonegap-plugin-barcodescanner",
+    "cordova-plugin-file-transfer"
   ]
 }

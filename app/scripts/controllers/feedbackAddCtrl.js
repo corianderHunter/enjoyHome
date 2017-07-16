@@ -3,24 +3,18 @@
  */
 angular.module('ZrsmWorker')
     .controller('feedbackAddCtrl', function($scope,$ionicHistory,$ionicPopup,_,$ionicActionSheet,$cordovaImagePicker,$cordovaCamera,feedbackAddService) {
-        $scope.imageList = [];
-        $scope.base64 = [];
+        $scope.imageList = ['../imgs/jinping.jpg'];
+        $scope.base64 = ['ttestdata'];
         $scope.goback = function(){
             $ionicHistory.goBack();
         };
         $scope.delImg = function($index){
             $scope.imageList.splice($index,1)
+            $scope.base64.splice($index,1)
         }
         $scope.data = {}
         $scope.data.title = "";
         $scope.data.content = '';
-
-        var options = {
-            maximumImagesCount: 10,
-            width: 800,
-            height: 800,
-            quality: 80
-        };
 
         function convertImgToBase64(url, callback,outputFormat){
             var canvas = document.createElement('CANVAS'),
@@ -67,9 +61,7 @@ angular.module('ZrsmWorker')
         var pickImage = function () {
             var options = {
                 maximumImagesCount:10,
-                width: 800,
-                height: 800,
-                quality: 80
+                quality: 50
             };
 
             $cordovaImagePicker.getPictures(options)
@@ -79,7 +71,7 @@ angular.module('ZrsmWorker')
                         $scope.base64.push(dataBase64);
                     })
                 }, function (error) {
-                    console.log(error);
+                    //console.log(error);
                 });
         }
         var takePhoto = null;
@@ -87,27 +79,25 @@ angular.module('ZrsmWorker')
         document.addEventListener("deviceready", function () {
             takePhoto = function () {
                 var options = {
-                    //这些参数可能要配合着使用，比如选择了sourcetype是0，destinationtype要相应的设置
-                    quality: 100,                                            //相片质量0-100
+                    quality: 50,                                            //相片质量0-100
                     destinationType: Camera.DestinationType.FILE_URI,        //返回类型：DATA_URL= 0，返回作为 base64 編碼字串。 FILE_URI=1，返回影像档的 URI。NATIVE_URI=2，返回图像本机URI (例如，資產庫)
                     sourceType: Camera.PictureSourceType.CAMERA,             //从哪里选择图片：PHOTOLIBRARY=0，相机拍照=1，SAVEDPHOTOALBUM=2。0和1其实都是本地图库
                     allowEdit: false,                                        //在选择之前允许修改截图
                     encodingType: Camera.EncodingType.JPEG,                   //保存的图片格式： JPEG = 0, PNG = 1
-                    targetWidth: 200,                                        //照片宽度
-                    targetHeight: 200,                                       //照片高度
+                    //targetWidth: 200,                                        //照片宽度
+                    //targetHeight: 200,                                       //照片高度
                     mediaType: 0,                                             //可选媒体类型：圖片=0，只允许选择图片將返回指定DestinationType的参数。 視頻格式=1，允许选择视频，最终返回 FILE_URI。ALLMEDIA= 2，允许所有媒体类型的选择。
                     cameraDirection: 0,                                       //枪后摄像头类型：Back= 0,Front-facing = 1
                     popoverOptions: CameraPopoverOptions,
                     saveToPhotoAlbum: true                                   //保存进手机相册
                 };
                 $cordovaCamera.getPicture(options).then(function (result) {
-                    //var image = document.getElementById('myImage');
-                    //image.src = imageData;
-                    //upImage(imageData);
-                    //$scope.imageList.push(result)
+                    $scope.imageList.push(result);
+                    convertImgToBase64(result,function(dataBase64){
+                        $scope.base64.push(dataBase64);
+                    })
                 }, function (err) {
-                    // error
-                    //CommonJs.AlertPopup(err.message);
+
                 });
 
             }
@@ -131,11 +121,7 @@ angular.module('ZrsmWorker')
                 content:$scope.data.content,
                 picCode:$scope.base64[0]
             }).then(function(){
-                $ionicPopup.alert({
-                    title:'提示！',
-                    message:'提交成功！'
-                })
-                $ionicHistory.goBack();
+                API_CONFIG_UTIL.showAlert("提交成功！",()=>{$ionicHistory.goBack();})
             })
         }
 

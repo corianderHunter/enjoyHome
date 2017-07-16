@@ -15,7 +15,7 @@
         <ion-list class="list feedback_list">
             <ion-item ng-repeat="val in data"
                       item="val"
-                      ui-sref="feedbackShow({item:val})" class="item item-remove-animate tc">
+                      class="item item-remove-animate tc">
                 {{val.st}}~{{val.et.split(' ')[1]}}
                 <i class="icon {{val.status==1?'ion-checkmark-round':(val.status==0?'ion-close-round':'ion-help')}} fr"></i>
                 <ion-option-button class="button-assertive"

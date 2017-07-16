@@ -113,7 +113,7 @@ angular.module('ZrsmWorker')
                 startTime:$scope.rst_st,
                 endTime:$scope.rst_et
             }).then(function(data){
-                if(data.code === 2) API_CONFIG_UTIL.showAlert("提交请假成功！"),$state.go('overtime')
+                if(data.code === 2) API_CONFIG_UTIL.showAlert("提交请假成功！",()=>{$state.go('overtime')})
             },function(data){
 
             })

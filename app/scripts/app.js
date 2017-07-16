@@ -101,7 +101,25 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','
           url: '/personalInfo',
           templateUrl: 'templates/personalInfo.html',
           controller:'personalInfoCtrl'
-      })
+      }).
+       state('taskStorageList',{
+            url:'/taskStorageList',
+            templateUrl:'templates/task_storage_list.html',
+            controller:'taskStorageListCtrl',
+            params:{item:null}
+        }).
+        state('taskStorageDetail',{
+            url:'/taskStorageDetail',
+            templateUrl:'templates/task_storage_detail.html',
+            controller:'taskStorageDetailCtrl',
+            params:{item:null}
+        }).
+        state('plantList', {
+            url:'/plantList',
+            templateUrl:'templates/plant_list.html',
+            controller:'plantListCtrl',
+            params:{item:null}
+        })
     ;
       $urlRouterProvider.otherwise('login');
   });

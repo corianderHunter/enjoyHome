@@ -23,7 +23,6 @@ angular.module('ZrsmWorker')
         }
 
         $scope.select_ = function(){
-            console.log($scope.allDays);
             fetchData();
         }
         fetchData();

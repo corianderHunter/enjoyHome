@@ -18,15 +18,22 @@
 .item_title{
   height: 30px;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 17px;
 }
 .item_text{
-  font-size: 16px;
-  margin-top: 20px;
+  font-size: 14px;
+  margin-top: 10px;
 }
 .fs25{
   font-size: 25px;
 }
 .scanDiv .card{
   margin: 0;
+}
+.task_time_desc .title{
+  font-size: 15px;
+  margin-top: 4px;
+}
+.bar-subheader{
+  height: 52px;
 }

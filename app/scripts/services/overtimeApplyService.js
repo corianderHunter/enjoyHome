@@ -13,7 +13,7 @@ angular.module('ZrsmWorker')
                     deferred.reject(null);
                 } else if (res.status === 200) {
                     console.log('成功');
-                    if (res.data.code!==2) return API_CONFIG_UTIL.showAlert('获取失败'),deferred.reject(null);
+                    if (res.data.code!==2) return API_CONFIG_UTIL.showAlert('提交失败！'),deferred.reject(null);
                     deferred.resolve(res.data);
                 } else {
                     API_CONFIG_UTIL.showAlert("内部服务器报错");
