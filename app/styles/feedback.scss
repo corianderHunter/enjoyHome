@@ -23,12 +23,13 @@
   width: 105px;
 }
 .singleImg{
-  width: 21%;
+  width: 23%;
+  margin: 1%;
 }
 .feedback_list .list{
   margin-bottom: 100px;
 }
-.singleImg:hover:after{
+.imgHover:hover:after{
   content: '';
   width: 100%;
   height: 100%;
@@ -45,4 +46,15 @@
 }
 .item-height{
   min-height:78px!important;
+}
+.ion-plus-round:before {
+  content: "";
+  position: absolute;
+  height: 47px;
+  width: 37px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
 }

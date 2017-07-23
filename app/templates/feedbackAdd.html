@@ -14,13 +14,13 @@
                 <textarea type="text" class="self-textarea" placeholder="请输入要反馈的信息" ng-model="data.content"></textarea>
             </label>
         </div>
-        <div class="imgList pad10">
+        <div class="imgList pad10" style="margin-bottom: 100px">
             <div class="list">
-                <div class="dpib item singleImg" ng-repeat="img in imageList" ng-click="delImg($index)">
-                    <img src="{{img}}" width="100%">
+                <div class="dpib item singleImg imgHover" ng-repeat="img in imageList" ng-click="delImg($index)" ng-style="{'height':'{{height}}px'}">
+                    <img src="{{img||'imgs/noImg.png'}}" width="100%">
                 </div>
+                <div class="singleImg icon ion-plus-round add item a8a8aa dpib"  on-tap="getPictures()" ng-style="{'height':'{{height}}px','line-height':'{{height-40}}px'}"></div>
             </div>
-            <div class="dpib icon ion-plus-round add a8a8aa"  ng-click="getPictures()"></div>
         </div>
     </ion-content>
     <ion-footer-bar class="self-bar mainColor" ng-click="commit()">

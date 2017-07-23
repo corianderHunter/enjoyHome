@@ -103,6 +103,9 @@ angular.module('ZrsmWorker')
         }
         $scope.chosenDate=function(value){
             if(!value.flag) return;
+            let curDate = new Date();
+            let chosenDate = new Date(value.date);
+            if(chosenDate.getTime()<(curDate.getTime()-24*60*60*1000)) return API_CONFIG_UTIL.showAlert('请选择今天以后的日期！');
             if(value.isChosen){
                 workOnService.deleteovertime({
                     "overtimeDate":value.date

@@ -26,6 +26,22 @@ angular.module('ZrsmWorker')
             });
             alertPopup.then(next);
         }
+
+        var convertImgToBase64 = function(url, callback,outputFormat){
+            var canvas = document.createElement('CANVAS'),
+                ctx = canvas.getContext('2d'),
+                img = new Image;
+            img.onload = function(){
+                canvas.height = img.height;
+                canvas.width = img.width;
+                ctx.drawImage(img,0,0);
+                var dataURL = canvas.toDataURL(outputFormat || 'image/png');
+                callback.call(this, dataURL);
+                canvas = null;
+            };
+            img.src = url;
+        };
+
         var paramsHandler = function(obj,$ck){
             var tmp={};
             if(!$ck.get("Token")) return $state.go('login');
@@ -37,6 +53,7 @@ angular.module('ZrsmWorker')
         }
         return {
             showAlert,
-            paramsHandler
+            paramsHandler,
+            convertImgToBase64
         }
     })

@@ -64,7 +64,7 @@ If you are using Phonegap Build you can add this to your config.xml
 If you're using [PhoneGap Build](https://build.phonegap.com/) please make sure you specify `gradle` as your Android build tool in `config.xml`: `<preference name="android-build-tool" value="gradle" />`.
 
 ## Using the plugin ##
-The plugin creates the object `cordova/plugin/BarcodeScanner` with the method `scan(success, fail)`.
+The plugin creates the object `cordova.plugins.barcodeScanner` with the method `scan(success, fail)`.
 
 The following barcode types are currently supported:
 ### Android
@@ -84,7 +84,7 @@ The following barcode types are currently supported:
 * RSS_EXPANDED
 
 Not by default, but supported if you pass in the "formats" option:
-* PDF417
+* PDF_417
 * AZTEC
 
 ### iOS
@@ -115,7 +115,7 @@ Not by default, but supported if you pass in the "formats" option:
 * QR_CODE
 * DATA_MATRIX
 * AZTEC
-* PDF417
+* PDF_417
 
 ### Windows Phone 8
 
@@ -133,7 +133,7 @@ Not by default, but supported if you pass in the "formats" option:
 * QR_CODE
 * DATA_MATRIX
 * AZTEC
-* PDF417
+* PDF_417
 
 ### BlackBerry 10
 * UPC_A

@@ -9,7 +9,7 @@
         <div class="dataContainer">
             <div class="dataTitle tc">{{date1}}</div>
             <div class="monthDate">
-                <div ng-repeat="date1_ in Dates1  track by $index" isChosen="{{date1_.isChosen}}" class="weekName {{date1_.flag?'trueDate':'falseDate'}} tc" ng-click="chosenDate(date1_,$event)" value="{{date1_.date}}">{{date1_.value}}</div>
+                <div ng-repeat="date1_ in Dates1 track by $index" isChosen="{{date1_.isChosen}}" class="weekName {{date1_.flag?'trueDate':'falseDate'}} tc" ng-click="chosenDate(date1_,$event)" value="{{date1_.date}}">{{date1_.value}}</div>
             </div>
         </div>
         <div class="dataContainer">

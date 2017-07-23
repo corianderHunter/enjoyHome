@@ -1,7 +1,8 @@
 {
   "name": "cordova-plugin-file",
-  "version": "4.2.0",
+  "version": "4.3.3",
   "description": "Cordova File Plugin",
+  "types": "./types/index.d.ts",
   "cordova": {
     "id": "cordova-plugin-file",
     "platforms": [
@@ -44,6 +45,13 @@
   },
   "author": "Apache Software Foundation",
   "license": "Apache-2.0",
+  "engines": {
+    "cordovaDependencies": {
+      "5.0.0": {
+        "cordova": ">100"
+      }
+    }
+  },
   "devDependencies": {
     "jshint": "^2.6.0"
   }

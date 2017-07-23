@@ -1,10 +1,5 @@
-'use strict';
-
 /**
- * @ngdoc function
- * @name ZrsmWorker.service:ExampleService
- * @description
- * # ExampleService
+ * Created by weigg on 2017/4/23.
  */
 angular.module('ZrsmWorker')
   // use factory for services
@@ -40,7 +35,6 @@ angular.module('ZrsmWorker')
       fetchSomethingFromServer: fetchSomethingFromServer
     };
   })
-  // 本地存储  2016-4-15  wjq
   .factory("storage", ["$window", function($window) {
 
     var storage = $window.localStorage;
@@ -120,8 +114,8 @@ angular.module('ZrsmWorker')
                   showDelay: 0
                 });
                  $timeout(function() {
-                $ionicLoading.hide(); //由于某种原因2秒后关闭弹出
-             }, 2000);
+                $ionicLoading.hide();
+             }, 3000);
             },
             hide:function(){
               $ionicLoading.hide();

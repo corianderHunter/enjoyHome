@@ -84,23 +84,27 @@ angular.module('ZrsmWorker')
         let date = new Date();
         let  month = date.getMonth();
         let year = date.getFullYear();
+        $scope.date = `${year}年${month+1}月`;
+        $scope.Dates = getDates(month,year);
+        $scope.backMonth =function(){
+            let date = new Date(year,month-1);
+            month = date.getMonth();
+            year = date.getFullYear();
             $scope.date = `${year}年${month+1}月`;
             $scope.Dates = getDates(month,year);
-            $scope.backMonth =function(){
-                let date = new Date(year,month-1);
-                month = date.getMonth();
-                year = date.getFullYear();
-                $scope.date = `${year}年${month+1}月`;
-                $scope.Dates = getDates(month,year);
-            }
-            $scope.addMonth =function() {
-                let date = new Date(year, month + 1);
-                month = date.getMonth();
-                year = date.getFullYear();
-                $scope.date = `${year}年${month + 1}月`;
-                $scope.Dates = getDates(month, year);
-            }
+        }
+        $scope.addMonth =function() {
+            let date = new Date(year, month + 1);
+            month = date.getMonth();
+            year = date.getFullYear();
+            $scope.date = `${year}年${month + 1}月`;
+            $scope.Dates = getDates(month, year);
+        }
         $scope.chosenDate=function(value,$event){
+            let curDate = new Date();
+            curDate = new Date(curDate.getTime()-60*60*24*1000);
+            let chosenDate = new Date(value.date);
+            if(chosenDate.getTime()<curDate.getTime()) return API_CONFIG_UTIL.showAlert('请选择今天以后的日期！');
             value["isChosen"] = !value.isChosen-0;
             $scope.chosenDate_Store["isChosen"] = 0;
             $scope.chosenDate_Store = value;

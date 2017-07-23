@@ -2,9 +2,9 @@
  * Created by weigg on 2017/5/23.
  */
 angular.module('ZrsmWorker')
-    .controller('feedbackAddCtrl', function($scope,$ionicHistory,$ionicPopup,_,$ionicActionSheet,$cordovaImagePicker,$cordovaCamera,feedbackAddService) {
-        $scope.imageList = ['../imgs/jinping.jpg'];
-        $scope.base64 = ['ttestdata'];
+    .controller('feedbackAddCtrl', function($scope,$ionicHistory,$ionicPopup,_,$document,$ionicActionSheet,$cordovaImagePicker,$cordovaCamera,feedbackAddService,API_CONFIG_UTIL) {
+        $scope.imageList = [];
+        $scope.base64 = [];
         $scope.goback = function(){
             $ionicHistory.goBack();
         };
@@ -12,27 +12,18 @@ angular.module('ZrsmWorker')
             $scope.imageList.splice($index,1)
             $scope.base64.splice($index,1)
         }
+
+        $scope.height = (function(){
+            var target = $document[0].body.offsetWidth;
+            return target*0.2;
+        })()
+
         $scope.data = {}
         $scope.data.title = "";
         $scope.data.content = '';
 
-        function convertImgToBase64(url, callback,outputFormat){
-            var canvas = document.createElement('CANVAS'),
-                ctx = canvas.getContext('2d'),
-                img = new Image;
-            img.onload = function(){
-                canvas.height = img.height;
-                canvas.width = img.width;
-                ctx.drawImage(img,0,0);
-                var dataURL = canvas.toDataURL(outputFormat || 'image/png');
-                callback.call(this, dataURL);
-                canvas = null;
-            };
-            img.src = url;
-        };
-
         $scope.getPictures = function() {
-            if($scope.imageList.length>0) return;
+            if($scope.imageList.length>3) return API_CONFIG_UTIL.showAlert('最多只能上传3张图片！');
             $ionicActionSheet.show({
                 buttons: [
                     { text: '相机' },
@@ -66,8 +57,9 @@ angular.module('ZrsmWorker')
 
             $cordovaImagePicker.getPictures(options)
                 .then(function (results) {
+                    if(results.length>3) return;
                     $scope.imageList.push(results[0])
-                    convertImgToBase64(results[0],function(dataBase64){
+                    API_CONFIG_UTIL.convertImgToBase64(results[0],function(dataBase64){
                         $scope.base64.push(dataBase64);
                     })
                 }, function (error) {
@@ -79,7 +71,7 @@ angular.module('ZrsmWorker')
         document.addEventListener("deviceready", function () {
             takePhoto = function () {
                 var options = {
-                    quality: 50,                                            //相片质量0-100
+                    quality: 10,                                            //相片质量0-100
                     destinationType: Camera.DestinationType.FILE_URI,        //返回类型：DATA_URL= 0，返回作为 base64 編碼字串。 FILE_URI=1，返回影像档的 URI。NATIVE_URI=2，返回图像本机URI (例如，資產庫)
                     sourceType: Camera.PictureSourceType.CAMERA,             //从哪里选择图片：PHOTOLIBRARY=0，相机拍照=1，SAVEDPHOTOALBUM=2。0和1其实都是本地图库
                     allowEdit: false,                                        //在选择之前允许修改截图
@@ -93,7 +85,7 @@ angular.module('ZrsmWorker')
                 };
                 $cordovaCamera.getPicture(options).then(function (result) {
                     $scope.imageList.push(result);
-                    convertImgToBase64(result,function(dataBase64){
+                    API_CONFIG_UTIL.convertImgToBase64(result,function(dataBase64){
                         $scope.base64.push(dataBase64);
                     })
                 }, function (err) {
@@ -119,7 +111,7 @@ angular.module('ZrsmWorker')
             feedbackAddService.commitfeedback({
                 title:$scope.data.title,
                 content:$scope.data.content,
-                picCode:$scope.base64[0]
+                picCode:$scope.base64
             }).then(function(){
                 API_CONFIG_UTIL.showAlert("提交成功！",()=>{$ionicHistory.goBack();})
             })

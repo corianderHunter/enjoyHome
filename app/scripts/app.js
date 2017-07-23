@@ -119,6 +119,18 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','
             templateUrl:'templates/plant_list.html',
             controller:'plantListCtrl',
             params:{item:null}
+        }).
+        state('taskOver',{
+            url:'/taskOver',
+            templateUrl:'templates/taskOver.html',
+            controller:'taskOverCtrl',
+            params:{id:null}
+        }).
+        state('resourceDetail',{
+            url:'/resourceDetail',
+            templateUrl:'templates/resourceDetail.html',
+            controller:'resourceDetailCtrl',
+            params:{item:null}
         })
     ;
       $urlRouterProvider.otherwise('login');

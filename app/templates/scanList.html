@@ -12,7 +12,7 @@
         </label>
         <ul class="list">
             <li class="item task_item scanList_item" ng-repeat="item in list" ui-sref="storageList({item:item})">
-                <div class="fl item_width item_image"><img src="{{item.picUrl}}"/></div>
+                <div class="fl item_width item_image"><img src="{{item.picUrl[0]||'imgs/noImg.png'}}"/></div>
                 <div class="fr item_center_sub">
                     <div class="item_title">{{item.name}}</div>
                     <div class="item_text">{{item.address}}</div>

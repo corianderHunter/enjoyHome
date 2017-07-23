@@ -8,7 +8,7 @@
     <ion-content class="content-margin">
         <ul class="list">
             <li class="item task_item scanList_item" ng-repeat="item in summary">
-                <div class="fl item_width item_image"><img src="{{item.picUrl}}"/></div>
+                <div class="fl item_width item_image"><img src="{{item.picUrl[0]||'imgs/noImg.png'}}"/></div>
                 <div class="fr item_center_sub">
                     <div class="item_title"><span class="fl">{{item.resConfName}}</span><span class="fr">{{item.count}}个</span></div>
                     <div class="item_text"><span style="margin-right: 10px" ng-repeat="val in item.attributes">{{val.name}}:{{val.text}}</span></div>

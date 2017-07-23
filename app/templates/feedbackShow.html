@@ -16,8 +16,8 @@
         </div>
         <div class="imgList pad10">
             <div class="list">
-                <div class="dpib item singleImg">
-                    <img src="{{item.picUrl}}" width="100%">
+                <div class="dpib item singleImg" ng-style="{'height':'{{height}}px'}">
+                    <img src="{{item.picUrl[0]||'imgs/noImg.png'}}" width="100%">
                 </div>
             </div>
             <!--<div class="dpib icon ion-plus-round add a8a8aa"  ng-click="getPictures()"></div>-->

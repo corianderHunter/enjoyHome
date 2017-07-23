@@ -407,20 +407,22 @@ parentViewController:(UIViewController*)parentViewController
 //--------------------------------------------------------------------------
 - (void)barcodeScanSucceeded:(NSString*)text format:(NSString*)format {
     dispatch_sync(dispatch_get_main_queue(), ^{
+        if (self.isSuccessBeepEnabled) {
+            AudioServicesPlaySystemSound(_soundFileObject);
+        }
         [self barcodeScanDone:^{
             [self.plugin returnSuccess:text format:format cancelled:FALSE flipped:FALSE callback:self.callback];
         }];
-        if (self.isSuccessBeepEnabled) {
-          AudioServicesPlaySystemSound(_soundFileObject);
-        }
     });
 }
 
 //--------------------------------------------------------------------------
 - (void)barcodeScanFailed:(NSString*)message {
-    [self barcodeScanDone:^{
-        [self.plugin returnError:message callback:self.callback];
-    }];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [self barcodeScanDone:^{
+            [self.plugin returnError:message callback:self.callback];
+        }];
+    });
 }
 
 //--------------------------------------------------------------------------
@@ -520,18 +522,8 @@ parentViewController:(UIViewController*)parentViewController
     else {
         return @"unable to add video capture output to session";
     }
-
-    [output setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode,
-                                     AVMetadataObjectTypeAztecCode,
-                                     AVMetadataObjectTypeDataMatrixCode,
-                                     AVMetadataObjectTypeUPCECode,
-                                     AVMetadataObjectTypeEAN8Code,
-                                     AVMetadataObjectTypeEAN13Code,
-                                     AVMetadataObjectTypeCode128Code,
-                                     AVMetadataObjectTypeCode93Code,
-                                     AVMetadataObjectTypeCode39Code,
-                                     AVMetadataObjectTypeITF14Code,
-                                     AVMetadataObjectTypePDF417Code]];
+    
+    [output setMetadataObjectTypes:[self formatObjectTypes]];
 
     // setup capture preview layer
     self.previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
@@ -626,6 +618,32 @@ parentViewController:(UIViewController*)parentViewController
     if (format.type == AVMetadataObjectTypeITF14Code)          return @"ITF";
     if (format.type == AVMetadataObjectTypePDF417Code)      return @"PDF_417";
     return @"???";
+}
+
+//--------------------------------------------------------------------------
+// convert string formats to metadata objects
+//--------------------------------------------------------------------------
+- (NSArray*) formatObjectTypes {
+    NSArray *supportedFormats = nil;
+    if (self.formats != nil) {
+        supportedFormats = [self.formats componentsSeparatedByString:@","];
+    }
+    
+    NSMutableArray * formatObjectTypes = [NSMutableArray array];
+    
+    if (self.formats == nil || [supportedFormats containsObject:@"QR_CODE"]) [formatObjectTypes addObject:AVMetadataObjectTypeQRCode];
+    if (self.formats == nil || [supportedFormats containsObject:@"AZTEC"]) [formatObjectTypes addObject:AVMetadataObjectTypeAztecCode];
+    if (self.formats == nil || [supportedFormats containsObject:@"DATA_MATRIX"]) [formatObjectTypes addObject:AVMetadataObjectTypeDataMatrixCode];
+    if (self.formats == nil || [supportedFormats containsObject:@"UPC_E"]) [formatObjectTypes addObject:AVMetadataObjectTypeUPCECode];
+    if (self.formats == nil || [supportedFormats containsObject:@"EAN_8"]) [formatObjectTypes addObject:AVMetadataObjectTypeEAN8Code];
+    if (self.formats == nil || [supportedFormats containsObject:@"EAN_13"]) [formatObjectTypes addObject:AVMetadataObjectTypeEAN13Code];
+    if (self.formats == nil || [supportedFormats containsObject:@"CODE_128"]) [formatObjectTypes addObject:AVMetadataObjectTypeCode128Code];
+    if (self.formats == nil || [supportedFormats containsObject:@"CODE_93"]) [formatObjectTypes addObject:AVMetadataObjectTypeCode93Code];
+    if (self.formats == nil || [supportedFormats containsObject:@"CODE_39"]) [formatObjectTypes addObject:AVMetadataObjectTypeCode39Code];
+    if (self.formats == nil || [supportedFormats containsObject:@"ITF"]) [formatObjectTypes addObject:AVMetadataObjectTypeITF14Code];
+    if (self.formats == nil || [supportedFormats containsObject:@"PDF_417"]) [formatObjectTypes addObject:AVMetadataObjectTypePDF417Code];
+    
+    return formatObjectTypes;
 }
 
 //--------------------------------------------------------------------------

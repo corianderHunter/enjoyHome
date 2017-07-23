@@ -4,7 +4,7 @@
             <img src="imgs/user.svg" class="headerBtn"/>
         </div>
         <h1 class="title tc c-white">乐享家-养护端</h1>
-        <div class="headerBtnDiv buttons">
+        <div class="headerBtnDiv buttons" ng-click="scanStart()">
             <img src="imgs/sca.svg" class="headerBtn"/>
         </div>
     </ion-header-bar>
@@ -13,7 +13,7 @@
             <ion-slide-box active-slide="myActiveSlide" class="self-slide">
                 <ion-slide ng-repeat="val in sliders">
                     <a href="{{val.lindUrl}}">
-                        <div class="box"><img src="{{val.picUrl}}"></div>
+                        <div class="box"><img src="{{val.picUrl||'imgs/noImg.png'}}"></div>
                     </a>
                 </ion-slide>
             </ion-slide-box>
@@ -24,7 +24,7 @@
                     <li ui-sref="feedback"><img src="imgs/7.png" class="headerBtn"/><div>我要反馈</div></li>
                     <li ui-sref="scanList"><img src="imgs/5.png" class="headerBtn"/><div>扫码盘点</div></li>
                     <li ui-sref="overtime"><img src="imgs/6.png" class="headerBtn"/><div>我要请假</div></li>
-                    <li ui-sref="lossReport"><img src="imgs/4.png" class="headerBtn"/><div>复状报损</div></li>
+                    <!--<li ui-sref="lossReport"><img src="imgs/4.png" class="headerBtn"/><div>复状报损</div></li>-->
                 </ul>
             </div>
         <!--</ion-scroll>-->
