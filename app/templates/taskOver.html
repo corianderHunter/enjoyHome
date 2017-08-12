@@ -1,0 +1,15 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="self-bar mainColor">
+        <div class="headerBtnDiv buttons" ng-click="goback()">
+            <i class="icon ion-chevron-left backBtn fl"></i>
+        </div>
+        <h1 class="title tc c-white">拍照完成</h1>
+    </ion-header-bar>
+    <div class="content-margin taskOverDiv">
+        <div class="cr {{hide?'hide':''}}"><img src="{{imgSrc}}"></div>
+        <div class="cr imageAdd add a8a8aa {{hide?'':'hide'}}"  ng-click="takePhoto()"></div>
+    </div>
+    <div class="bar bar-footer" ng-click="over()">
+        <div class="title">提交</div>
+    </div>
+</ion-view>

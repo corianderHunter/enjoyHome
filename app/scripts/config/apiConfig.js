@@ -4,10 +4,14 @@
 
 angular.module('ZrsmWorker')
     .constant("API_CONFIG",{
-        host:'http://120.27.118.87',
-        port:'2283',
+        host:'http://218.2.197.230',
+        port:'12283',
         path:'',
-        defaultPath:'http://120.27.118.87:2283/api'
+        defaultPath:'http://218.2.197.230:12283/api'
+        //host:'http://120.27.118.87',
+        //port:'2283',
+        //path:'',
+        //defaultPath:'http://120.27.118.87:2283/api'
     })
     .constant("API_CONFIG_TEST",{
         host:'http://192.168.199.233',

@@ -1,0 +1,23 @@
+<ion-view>
+    <ion-header-bar align-title="left" class="self-bar mainColor">
+        <div class="back-button buttons"  ng-click="goback()">
+            <i class="icon ion-chevron-left fl backBtn"></i>
+        </div>
+        <h1 class="title tc c-white">扫码</h1>
+        <div class="headerBtnDiv buttons" ng-click="scanStart()">
+            <img src="imgs/sca.svg" class="headerBtn"/>
+        </div>
+    </ion-header-bar>
+    <ion-content class="fullPage scanDiv">
+        <div class="card" style="margin-bottom: 100px">
+            <div class="item item-divider fwb">已扫码{{dataArr.length}}个</div>
+            <div class="item item-text-wrap" ng-repeat="val in dataArr track by $index">
+                {{val}}
+                <i class="icon ion-android-delete fr fs25" ng-click="remove($index)"></i>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer" ng-click="commit()">
+        <div class="title">扫码完成</div>
+    </div>
+</ion-view>

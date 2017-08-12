@@ -25,7 +25,7 @@ angular.module('ZrsmWorker')
             overtimeService.deleteofftime({
                 leaveDate:item.value
             }).then(function(){
-                delete item;
+                item = null;
                 $event.target.parentNode.parentNode.remove()
             })
         }

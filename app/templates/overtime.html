@@ -14,6 +14,7 @@
         <!--</ul>-->
         <ion-list class="list feedback_list">
             <ion-item ng-repeat="val in data"
+                      ng-if="val"
                       item="val"
                       class="item item-remove-animate tc">
                 {{val.st}}~{{val.et.split(' ')[1]}}

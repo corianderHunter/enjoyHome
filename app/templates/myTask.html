@@ -10,7 +10,7 @@
         </select>
     </ion-header-bar>
     <div class="bar bar-subheader task_time_desc">
-      <h3 class="title list-font-size">未完成工时：{{unfinished}}小时&nbsp;&nbsp;&nbsp;&nbsp;已完成工时：{{finished}}小时</h3>
+      <h3 class="title list-font-size">未完成：{{unfinished}}分钟&nbsp;&nbsp;&nbsp;&nbsp;已完成：{{finished}}分钟</h3>
     </div>
     <ion-content class="content-margin" style="margin-top:50px ">
         <ul class="list">
@@ -18,7 +18,7 @@
                 <div class="fl item_width item_image"><img src="{{item.picUrl[0]||'imgs/noImg.png'}}"/></div>
                 <div class="fr item_center_sub">
                     <div class="item_title"><span class="fl">{{item.stockroomName}}</span></div>
-                    <div class="item_text">未完成工时{{item.workTime-item.finishWorkTime}}小时</div>
+                    <div class="item_text">未完成：{{item.unFinishWorkTime}}分钟</div>
                 </div>
             </li>
         </ul>

@@ -1,0 +1,29 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="self-bar mainColor">
+        <div class="headerBtnDiv buttons" ng-click="goback()">
+            <i class="icon ion-chevron-left backBtn fl"></i>
+        </div>
+        <h1 class="title tc c-white">库位列表</h1>
+        <select class="myTask_select button fr"  ng-model="allDays" ng-change="select_()">
+            <option value="1">本周</option>
+            <option value="0">今天</option>
+        </select>
+    </ion-header-bar>
+    <div class="bar bar-subheader task_time_desc">
+        <h3 class="title list-font-size">未完成：{{unfinished||0}}分钟&nbsp;&nbsp;&nbsp;&nbsp;已完成：{{finished||0}}分钟</h3>
+    </div>
+    <ion-content class="content-margin" style="margin-top:50px ">
+        <ul class="list">
+            <li class="item task_item scanList_item" ng-repeat="item in works" ui-sref="taskStorageDetail({item:{allDays:!!(allDays-0),storageId:item.storageId}})">
+                <div class="fl item_width item_image"><img src="{{item.picUrl[0]||'imgs/noImg.png'}}"/></div>
+                <div class="fr item_center_sub">
+                    <div class="item_title"><span class="fl">{{item.storageName}}</span><span class="fr" style="font-size: 16px">剩余{{item.unFinishWorkTime}}分钟</span></div>
+                    <div class="item_text">{{item.storageAddress}}</div>
+                </div>
+            </li>
+        </ul>
+    </ion-content>
+    <div class="bar bar-footer" ng-click="stockcheck()">
+        <div class="title">签到</div>
+    </div>
+</ion-view>

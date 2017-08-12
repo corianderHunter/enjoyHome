@@ -1,0 +1,19 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="self-bar mainColor">
+        <div class="headerBtnDiv buttons" ng-click="goback()">
+            <i class="icon ion-chevron-left backBtn fl"></i>
+        </div>
+        <h1 class="title tc c-white">植物详细</h1>
+    </ion-header-bar>
+    <ion-content class="content-margin">
+        <ul class="list" style="margin-bottom: 0">
+            <li class="item task_item scanList_item">
+                <div class="fl item_width item_image"><img src="{{item.picUrl||'imgs/noImg.png'}}"/></div>
+                <div class="fr item_center_sub">
+                    <div class="item_title"><span class="fl">{{item.resConfName}}({{item.varietyName}})</span></div>
+                    <div class="item_text"><span style="margin-right: 10px" ng-repeat="val in item.attributes">{{val.name}}:{{val.text}}</span></div>
+                </div>
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>

@@ -7,7 +7,7 @@
  *
  * Main module of the application.
  */
-
+"use strict"
 
 angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','ionic-timepicker','ngCookies'])
 
@@ -30,6 +30,7 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','
     })
     .state('scan',{
           url: '/scan',
+          cache:false,
           templateUrl: 'templates/scan.html',
           controller:'scanCtrl',
           params:{ids:null}
@@ -46,6 +47,7 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','
     })
     .state('overtime',{
         url:'/overtime',
+        cache:false,
         templateUrl:'templates/overtime.html',
         controller:'overtimeCtrl'
     })
@@ -56,6 +58,7 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','
     })
     .state('feedback',{
         url:'/feedback',
+        cache:false,
         templateUrl:'templates/feedback.html',
         controller:'feedbackCtrl'
     })
@@ -72,18 +75,21 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','
     })
         .state('myTask',{
           url: '/myTask',
+          cache:false,
           templateUrl: 'templates/myTask.html',
             controller:'myTaskCtrl'
       }).
       state('storageList',{
           url: '/storageList',
+        cache:false,
           templateUrl: 'templates/storageList.html',
         controller:'storageListCtrl',
         params:{item:null}
       }).
       state('subStorageList',{
-          url: '/subStorageList',
-          templateUrl: 'templates/subStorageList.html',
+        url: '/subStorageList',
+        cache:false,
+        templateUrl: 'templates/subStorageList.html',
         controller:'subStorageListCtrl',
         params:{item:null}
       }).
@@ -94,6 +100,7 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','
       }).
       state('scanList',{
           url: '/scanList',
+          cache:false,
           templateUrl: 'templates/scanList.html',
           controller:'scanListCtrl'
       }).
@@ -104,24 +111,28 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','
       }).
        state('taskStorageList',{
             url:'/taskStorageList',
+            cache:false,
             templateUrl:'templates/task_storage_list.html',
             controller:'taskStorageListCtrl',
             params:{item:null}
         }).
         state('taskStorageDetail',{
             url:'/taskStorageDetail',
+            cache:false,
             templateUrl:'templates/task_storage_detail.html',
             controller:'taskStorageDetailCtrl',
             params:{item:null}
         }).
         state('plantList', {
             url:'/plantList',
+            cache:false,
             templateUrl:'templates/plant_list.html',
             controller:'plantListCtrl',
             params:{item:null}
         }).
         state('taskOver',{
             url:'/taskOver',
+            cache:false,
             templateUrl:'templates/taskOver.html',
             controller:'taskOverCtrl',
             params:{id:null}
@@ -131,8 +142,14 @@ angular.module('ZrsmWorker', ['ionic', 'ngCordova','ngResource', 'ionic-toast','
             templateUrl:'templates/resourceDetail.html',
             controller:'resourceDetailCtrl',
             params:{item:null}
-        })
-    ;
+        }).
+        state('lossReportAdd',{
+            url:'/lossReportAdd',
+            cache:false,
+            templateUrl:'templates/lossReportAdd.html',
+            controller:'lossReportAddCtrl',
+            params:{item:null}
+        });
       $urlRouterProvider.otherwise('login');
   });
 

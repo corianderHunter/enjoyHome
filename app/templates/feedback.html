@@ -8,6 +8,7 @@
     <ion-content class="bg-c-white fullPage dc">
         <ion-list class="list feedback_list">
             <ion-item ng-repeat="val in testData"
+                      ng-if="val"
                       item="val"
                       ui-sref="feedbackShow({item:val})" class="item item-height item-remove-animate">
                 <div style="height: 20px;line-height: 20px">

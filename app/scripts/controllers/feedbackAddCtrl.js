@@ -60,7 +60,7 @@ angular.module('ZrsmWorker')
                     if(results.length>3) return;
                     $scope.imageList.push(results[0])
                     API_CONFIG_UTIL.convertImgToBase64(results[0],function(dataBase64){
-                        $scope.base64.push(dataBase64);
+                        $scope.base64.push(dataBase64.slice(22));
                     })
                 }, function (error) {
                     //console.log(error);
@@ -86,7 +86,7 @@ angular.module('ZrsmWorker')
                 $cordovaCamera.getPicture(options).then(function (result) {
                     $scope.imageList.push(result);
                     API_CONFIG_UTIL.convertImgToBase64(result,function(dataBase64){
-                        $scope.base64.push(dataBase64);
+                        $scope.base64.push(dataBase64.slice(22));
                     })
                 }, function (err) {
 

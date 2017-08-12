@@ -4,6 +4,7 @@
 /**
  * Created by weigg on 2017/5/17.
  */
+ 'use strict'
 angular.module('ZrsmWorker')
     .controller('feedbackCtrl', function($scope,ionicPopup,$ionicHistory,feedbackService) {
         $scope.goback = function () {
@@ -14,7 +15,7 @@ angular.module('ZrsmWorker')
             feedbackService.deletefeedback({
                 feedbackId:item.feedbackId
             }).then(function(){
-                delete item;
+                item = null;
                 $event.target.parentNode.parentNode.remove()
             })
         }

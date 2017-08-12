@@ -21,6 +21,7 @@ angular.module('ZrsmWorker')
                 .scan()
                 .then(function (barcodeData) {
                     ionicPopup.loading.show();
+                    if(!barcodeData.text) return;
                     homeService.resourceconfdetail({resId:barcodeData.text})
                         .then(function(data){
                             ionicPopup.loading.hide();

@@ -17,6 +17,7 @@ var merge = require('merge-stream');
 var ripple = require('ripple-emulator');
 var wiredep = require('wiredep');
 var ignore = require('gulp-ignore');
+var babel = require('gulp-babel');
 
 /**
  * Parse arguments
@@ -121,7 +122,9 @@ gulp.task('scripts', function() {
 
   var scriptStream = gulp
     .src(['templates.js', 'app.js', '**/*.js'], { cwd: 'app/scripts' })
-
+    .pipe(babel({
+      presets: ["babel-preset-es2015"].map(require.resolve)
+    }))
     .pipe(plugins.if(!build, plugins.changed(dest)));
 
   return streamqueue({ objectMode: true }, scriptStream, templateStream)
@@ -181,7 +184,6 @@ gulp.task('jsHint', function(done) {
     .src('app/scripts/**/*.js')
     .pipe(plugins.jshint())
     .pipe(plugins.jshint.reporter(stylish))
-
     .on('error', errorHandler);
     done();
 });
